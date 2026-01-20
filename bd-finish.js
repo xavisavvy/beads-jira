@@ -231,4 +231,9 @@ function main() {
   console.log(`Branch ${currentBranch} has been pushed.`);
 }
 
-main();
+// Export for testing
+if (require.main === module) {
+  main();
+} else {
+  module.exports = { main };
+}

@@ -137,7 +137,12 @@ async function main() {
   console.log('  4. Push and create PR');
 }
 
-main().catch(error => {
-  console.error('Error:', error.message);
-  process.exit(1);
-});
+// Export for testing
+if (require.main === module) {
+  main().catch(error => {
+    console.error('Error:', error.message);
+    process.exit(1);
+  });
+} else {
+  module.exports = { prompt, main };
+}

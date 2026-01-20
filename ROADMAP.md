@@ -44,15 +44,15 @@ This roadmap addresses:
 **Solution**: Implement GitHub Actions + GitLab CI workflows
 
 **Tasks**:
-- [ ] Create `.github/workflows/ci.yml` for main CI pipeline
-- [ ] Add cross-platform matrix testing (Ubuntu, macOS, Windows)
-- [ ] Configure Node.js versions matrix (18, 20)
-- [ ] Add Python testing (3.9, 3.10, 3.11)
-- [ ] Run tests on every PR and push to main
+- [x] Create `.github/workflows/ci.yml` for main CI pipeline
+- [x] Add cross-platform matrix testing (Ubuntu, macOS, Windows)
+- [x] Configure Node.js versions matrix (18, 20)
+- [x] Add Python testing (3.9, 3.10, 3.11)
+- [x] Run tests on every PR and push to main
 - [ ] Add status badges to README
 - [ ] Create GitLab CI equivalent (`.gitlab-ci.yml`)
 
-**Estimate**: 6 hours
+**Status**: ✅ **COMPLETE** (Except GitLab CI and badges)
 
 ---
 
@@ -63,18 +63,23 @@ This roadmap addresses:
 **Solution**: Add Jest for Node.js, Pytest for Python
 
 **Tasks**:
-- [ ] Install Jest and configure `jest.config.js`
-- [ ] Create `tests/` directory structure
-- [ ] Add unit tests for sync logic (JQL building, field mapping)
-- [ ] Add integration tests for workflow helpers
-- [ ] Mock `bd` commands and git operations
-- [ ] Add test for template sync script
+- [x] Install Jest and configure `jest.config.js`
+- [x] Create `tests/` directory structure
+- [x] Add unit tests for sync logic (JQL building, field mapping)
+- [x] Add integration tests for workflow helpers
+- [x] Mock `bd` commands and git operations
+- [x] Add test for template sync script
 - [ ] Install Pytest for Python scripts
 - [ ] Add equivalent Python tests
-- [ ] Target 80%+ code coverage
-- [ ] Update `npm test` to run actual tests
+- [ ] Increase code coverage to 80%+ (currently at ~40%)
+- [x] Update `npm test` to run actual tests
 
-**Estimate**: 12 hours
+**Status**: ⏳ **IN PROGRESS** - Basic tests implemented, need to increase coverage
+
+**Coverage Status**:
+- Current: ~40% lines, 40% branches, 60% functions
+- Target: 80% across all metrics
+- Next Steps: Add integration tests that actually execute main functions
 
 ---
 
@@ -85,18 +90,18 @@ This roadmap addresses:
 **Solution**: Add ESLint, Prettier, and pre-commit hooks
 
 **Tasks**:
-- [ ] Install and configure ESLint for JavaScript
+- [x] Install and configure ESLint for JavaScript
 - [ ] Install and configure Pylint for Python
-- [ ] Install and configure Prettier for formatting
-- [ ] Create `.eslintrc.json` with rules
-- [ ] Create `.prettierrc` for consistent formatting
-- [ ] Add `npm run lint` and `npm run format` commands
-- [ ] Install Husky for Git hooks
-- [ ] Add pre-commit hook that runs linter
+- [x] Install and configure Prettier for formatting
+- [x] Create `.eslintrc.json` with rules
+- [x] Create `.prettierrc` for consistent formatting
+- [x] Add `npm run lint` and `npm run format` commands
+- [x] Install Husky for Git hooks
+- [x] Add pre-commit hook that runs linter
 - [ ] Add pre-push hook that runs tests
-- [ ] Fix all existing linter warnings
+- [x] Fix all existing linter warnings
 
-**Estimate**: 4 hours
+**Status**: ⏳ **IN PROGRESS** - ESLint and Prettier configured, Python linting pending
 
 ---
 

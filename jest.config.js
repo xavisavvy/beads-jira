@@ -1,9 +1,14 @@
 module.exports = {
   testEnvironment: 'node',
   collectCoverageFrom: [
-    'scripts/sync-pr-templates.js',
+    'bd-start-branch.js',
+    'bd-finish.js',
+    'run.js',
+    'sync_jira_to_beads.js',
+    'scripts/**/*.js',
     '!node_modules/**',
-    '!coverage/**'
+    '!coverage/**',
+    '!commitlint.config.js'
   ],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov', 'html'],

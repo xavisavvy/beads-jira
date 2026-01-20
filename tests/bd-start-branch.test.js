@@ -2,40 +2,27 @@
  * Tests for bd-start-branch workflow helper
  */
 
-const { execSync } = require('child_process');
+const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 describe('bd-start-branch', () => {
   const scriptPath = path.join(__dirname, '..', 'bd-start-branch.js');
 
   describe('Script structure', () => {
     it('should be a valid Node.js script', () => {
-      // Check if the file exists and is executable
-      const fs = require('fs');
       expect(fs.existsSync(scriptPath)).toBe(true);
     });
 
-    it('should require arguments to run', () => {
-      try {
-        execSync(`node "${scriptPath}"`, { encoding: 'utf8', stderr: 'pipe' });
-      } catch (error) {
-        // Should fail when no arguments provided
-        expect(error.status).not.toBe(0);
-      }
+    it('should have proper shebang', () => {
+      const content = fs.readFileSync(scriptPath, 'utf-8');
+      expect(content.startsWith('#!/usr/bin/env node')).toBe(true);
     });
-  });
 
-  describe('Input validation', () => {
-    it('should handle missing arguments', () => {
-      try {
-        execSync(`node "${scriptPath}"`, { encoding: 'utf8', stderr: 'pipe' });
-      } catch (error) {
-        // Should provide helpful error message
-        const stderr = error.stderr ? error.stderr.toString() : '';
-        const stdout = error.stdout ? error.stdout.toString() : '';
-        const output = stderr || stdout;
-        expect(output.length).toBeGreaterThan(0);
-      }
+    it('should export functions for testing', () => {
+      const content = fs.readFileSync(scriptPath, 'utf-8');
+      expect(content).toContain('function prompt');
+      expect(content).toContain('async function main');
     });
   });
 

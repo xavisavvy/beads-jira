@@ -157,9 +157,14 @@ function run(task, args) {
 const task = process.argv[2] || 'help';
 const args = process.argv.slice(3);
 
-try {
-  run(task, args);
-} catch (error) {
-  console.error(`Error running task "${task}":`, error.message);
-  process.exit(1);
+// Export for testing
+if (require.main === module) {
+  try {
+    run(task, args);
+  } catch (error) {
+    console.error(`Error running task "${task}":`, error.message);
+    process.exit(1);
+  }
+} else {
+  module.exports = { run, showHelp };
 }
