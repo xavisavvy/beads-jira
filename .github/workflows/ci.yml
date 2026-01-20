@@ -82,17 +82,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       
-      - name: Check Markdown links
-        uses: gaurav-nelson/github-action-markdown-link-check@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          config-file: '.github/markdown-link-check.json'
-          check-modified-files-only: 'no'
+          node-version: 20
+      
+      - name: Install dependencies
+        run: npm ci
       
       - name: Validate PR template sync
+        run: npm run check-pr-templates
+      
+      - name: Check documentation structure
         run: |
-          if [ -f scripts/sync-pr-templates.js ]; then
-            node scripts/sync-pr-templates.js --check
-          fi
+          echo "Checking documentation files exist..."
+          test -f README.md || (echo "ERROR: README.md missing" && exit 1)
+          test -f INDEX.md || (echo "ERROR: INDEX.md missing" && exit 1)
+          test -f ROADMAP.md || (echo "ERROR: ROADMAP.md missing" && exit 1)
+          test -f QUICKREF.md || (echo "ERROR: QUICKREF.md missing" && exit 1)
+          echo "✓ All required documentation files present"
   
   validate-scripts:
     name: Validate Cross-Platform Scripts

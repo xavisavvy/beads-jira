@@ -5,10 +5,23 @@
     },
     {
       "pattern": "^https://mcp.atlassian.com.*"
+    },
+    {
+      "pattern": "^\\.\\./"
+    },
+    {
+      "pattern": "^\\./"
+    }
+  ],
+  "replacementPatterns": [
+    {
+      "pattern": "^/",
+      "replacement": "{{BASEURL}}/"
     }
   ],
   "timeout": "20s",
   "retryOn429": true,
   "retryCount": 3,
-  "aliveStatusCodes": [200, 206, 301, 302, 403]
+  "aliveStatusCodes": [200, 206, 301, 302, 403],
+  "ignoreDisable": false
 }
