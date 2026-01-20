@@ -2,7 +2,7 @@
 /**
  * Cross-platform task runner for Jira-Beads sync
  * Works on Windows, macOS, Linux without external dependencies
- * 
+ *
  * Usage:
  *   node run install
  *   node run sync PROJ --component backend
@@ -47,7 +47,7 @@ function showHelp() {
   console.log('╚════════════════════════════════════════════════════════════╝');
   console.log('');
   console.log(`Detected OS:      ${os.platform()}`);
-  console.log(`Using Runtime:    Node.js`);
+  console.log('Using Runtime:    Node.js');
   console.log('');
   console.log('Available Commands:');
   console.log('  node run install              Install sync and workflow helpers');
@@ -72,79 +72,79 @@ function showHelp() {
 
 function run(task, args) {
   switch (task) {
-    case 'install':
-      if (isWindows) {
-        execSync('powershell -ExecutionPolicy Bypass -File install.ps1', { stdio: 'inherit' });
-      } else {
-        execSync('bash install.sh', { stdio: 'inherit' });
-      }
-      break;
+  case 'install':
+    if (isWindows) {
+      execSync('powershell -ExecutionPolicy Bypass -File install.ps1', { stdio: 'inherit' });
+    } else {
+      execSync('bash install.sh', { stdio: 'inherit' });
+    }
+    break;
 
-    case 'sync':
-      if (args.length === 0) {
-        console.error('Error: PROJ argument required');
-        console.log('Usage: node run sync PROJ [--component NAME]');
-        process.exit(1);
-      }
-      const syncArgs = args.join(' ');
-      execSync(`node scripts/sync_jira_to_beads.js ${syncArgs}`, { stdio: 'inherit' });
-      break;
+  case 'sync':
+    if (args.length === 0) {
+      console.error('Error: PROJ argument required');
+      console.log('Usage: node run sync PROJ [--component NAME]');
+      process.exit(1);
+    }
+    const syncArgs = args.join(' ');
+    execSync(`node scripts/sync_jira_to_beads.js ${syncArgs}`, { stdio: 'inherit' });
+    break;
 
-    case 'start':
-      if (args.length === 0) {
-        console.error('Error: ISSUE argument required');
-        console.log('Usage: node run start ISSUE');
-        process.exit(1);
-      }
-      const issueId = args[0];
-      if (isWindows) {
-        execSync(`powershell -ExecutionPolicy Bypass -File scripts/bd-start-branch.ps1 ${issueId}`, { stdio: 'inherit' });
-      } else {
-        execSync(`node scripts/bd-start-branch.js ${issueId}`, { stdio: 'inherit' });
-      }
-      break;
+  case 'start':
+    if (args.length === 0) {
+      console.error('Error: ISSUE argument required');
+      console.log('Usage: node run start ISSUE');
+      process.exit(1);
+    }
+    const issueId = args[0];
+    if (isWindows) {
+      execSync(`powershell -ExecutionPolicy Bypass -File scripts/bd-start-branch.ps1 ${issueId}`, { stdio: 'inherit' });
+    } else {
+      execSync(`node scripts/bd-start-branch.js ${issueId}`, { stdio: 'inherit' });
+    }
+    break;
 
-    case 'finish':
-      if (args.length === 0) {
-        console.error('Error: ISSUE argument required');
-        console.log('Usage: node run finish ISSUE [--draft]');
-        process.exit(1);
-      }
-      const finishArgs = args.join(' ');
-      if (isWindows) {
-        const draftFlag = args.includes('--draft') ? '-Draft' : '';
-        execSync(`powershell -ExecutionPolicy Bypass -File scripts/bd-finish.ps1 ${args[0]} ${draftFlag}`, { stdio: 'inherit' });
-      } else {
-        execSync(`node scripts/bd-finish.js ${finishArgs}`, { stdio: 'inherit' });
-      }
-      break;
+  case 'finish':
+    if (args.length === 0) {
+      console.error('Error: ISSUE argument required');
+      console.log('Usage: node run finish ISSUE [--draft]');
+      process.exit(1);
+    }
+    const finishArgs = args.join(' ');
+    if (isWindows) {
+      const draftFlag = args.includes('--draft') ? '-Draft' : '';
+      execSync(`powershell -ExecutionPolicy Bypass -File scripts/bd-finish.ps1 ${args[0]} ${draftFlag}`, { stdio: 'inherit' });
+    } else {
+      execSync(`node scripts/bd-finish.js ${finishArgs}`, { stdio: 'inherit' });
+    }
+    break;
 
-    case 'test':
-      execSync('node scripts/sync_jira_to_beads.js TEST --use-example-data', { stdio: 'inherit' });
-      console.log('');
-      console.log('Check beads issues:');
-      console.log('  bd ls --label jira-synced');
-      break;
+  case 'test':
+    execSync('node scripts/sync_jira_to_beads.js TEST --use-example-data', { stdio: 'inherit' });
+    console.log('');
+    console.log('Check beads issues:');
+    console.log('  bd ls --label jira-synced');
+    break;
 
-    case 'config':
-      console.log('Current Configuration:');
-      console.log(`  OS:            ${os.platform()}`);
-      console.log(`  Runtime:       Node.js ${process.version}`);
-      console.log(`  Has Python:    ${hasPython ? 'Yes' : 'No'}`);
-      console.log('');
-      if (fs.existsSync('.jira-beads-config')) {
-        console.log('Jira Config (.jira-beads-config):');
-        console.log(fs.readFileSync('.jira-beads-config', 'utf-8'));
-      } else {
-        console.log('No .jira-beads-config file found.');
-        console.log('Run "node run install" first.');
-      }
-      break;
+  case 'config':
+    console.log('Current Configuration:');
+    console.log(`  OS:            ${os.platform()}`);
+    console.log(`  Runtime:       Node.js ${process.version}`);
+    console.log(`  Has Python:    ${hasPython ? 'Yes' : 'No'}`);
+    console.log('');
+    if (fs.existsSync('.jira-beads-config')) {
+      console.log('Jira Config (.jira-beads-config):');
+      console.log(fs.readFileSync('.jira-beads-config', 'utf-8'));
+    } else {
+      console.log('No .jira-beads-config file found.');
+      console.log('Run "node run install" first.');
+    }
+    break;
 
-    case 'help':
-    default:
-      showHelp();
-      break;
+  case 'help':
+  default:
+    showHelp();
+    break;
   }
 }
 

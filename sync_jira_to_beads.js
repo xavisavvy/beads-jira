@@ -2,7 +2,7 @@
 /**
  * Jira to Beads Sync Script - Node.js version
  * Queries Jira issues via Atlassian Rovo MCP server and syncs them to beads.
- * 
+ *
  * Designed for .NET/VueJS projects where Node is already installed.
  */
 
@@ -24,24 +24,24 @@ class JiraBeadsSync {
   async queryJiraViaMcp() {
     // Build JQL query
     const jqlParts = [`project = ${this.projectKey}`];
-    
+
     if (this.component) {
       jqlParts.push(`component = "${this.component}"`);
     }
-    
+
     // Only sync open/in-progress issues
     jqlParts.push('status NOT IN (Done, Closed, Resolved)');
-    
+
     const jql = jqlParts.join(' AND ');
-    
+
     console.log(`📋 Querying Jira with JQL: ${jql}`);
-    
+
     // Allow explicit use of example data for testing
     if (this.useExampleData) {
       console.error('⚠️  Using example data (--use-example-data flag)');
       return this.getExampleData();
     }
-    
+
     try {
       return await this.queryViaMcpClient(jql);
     } catch (error) {
@@ -61,7 +61,7 @@ class JiraBeadsSync {
     // For prototype, return example data
     console.log(`ℹ️  Would query MCP at: ${this.mcpUrl}`);
     console.log(`ℹ️  With JQL query: ${jql}`);
-    
+
     throw new Error('MCP client integration - using example data');
   }
 
@@ -110,7 +110,7 @@ class JiraBeadsSync {
     for (const issue of issues) {
       try {
         const exists = this.checkBeadsIssueExists(issue.key);
-        
+
         if (exists) {
           this.updateBeadsIssue(issue);
           updated++;
@@ -140,7 +140,7 @@ class JiraBeadsSync {
     try {
       const output = execSync('bd ls --json', { encoding: 'utf-8', stdio: ['pipe', 'pipe', 'ignore'] });
       const issues = JSON.parse(output);
-      return issues.some(issue => 
+      return issues.some(issue =>
         issue.labels && issue.labels.includes(jiraKey)
       );
     } catch (error) {
@@ -155,10 +155,10 @@ class JiraBeadsSync {
     const title = jiraIssue.fields.summary;
     const priority = this.mapPriority(jiraIssue.fields.priority?.name);
     const type = this.mapIssueType(jiraIssue.fields.issuetype?.name);
-    
+
     // Build description with Jira metadata
     const description = this.buildDescription(jiraIssue);
-    
+
     // Create the issue
     const cmd = [
       'bd', 'create',
@@ -166,12 +166,12 @@ class JiraBeadsSync {
       '-t', type,
       '-p', priority.toString()
     ];
-    
-    const issueId = execSync(cmd.join(' '), { 
+
+    const issueId = execSync(cmd.join(' '), {
       encoding: 'utf-8',
       shell: true
     }).trim();
-    
+
     // Add description
     if (description) {
       execSync(`bd edit ${issueId} -d "${description.replace(/"/g, '\\"')}"`, {
@@ -179,10 +179,10 @@ class JiraBeadsSync {
         stdio: 'ignore'
       });
     }
-    
+
     // Add labels
     this.addLabelsToBeadsIssue(issueId, jiraIssue);
-    
+
     console.log(`✅ Created ${issueId} from ${jiraIssue.key}`);
   }
 
@@ -193,15 +193,15 @@ class JiraBeadsSync {
     // Find the beads issue ID
     const output = execSync('bd ls --json', { encoding: 'utf-8' });
     const issues = JSON.parse(output);
-    const beadsIssue = issues.find(issue => 
+    const beadsIssue = issues.find(issue =>
       issue.labels && issue.labels.includes(jiraIssue.key)
     );
-    
+
     if (!beadsIssue) return;
-    
+
     const description = this.buildDescription(jiraIssue);
     const priority = this.mapPriority(jiraIssue.fields.priority?.name);
-    
+
     // Update description and priority
     try {
       execSync(`bd edit ${beadsIssue.id} -d "${description.replace(/"/g, '\\"')}" -p ${priority}`, {
@@ -222,14 +222,14 @@ class JiraBeadsSync {
       jiraIssue.key,
       'jira-synced'
     ];
-    
+
     // Add component labels
     if (jiraIssue.fields.components) {
       jiraIssue.fields.components.forEach(comp => {
         labels.push(`component-${comp.name}`);
       });
     }
-    
+
     labels.forEach(label => {
       try {
         execSync(`bd label add ${beadsIssueId} "${label}"`, {
@@ -253,7 +253,7 @@ class JiraBeadsSync {
       '',
       jiraIssue.fields.description || '(No description)'
     ];
-    
+
     return parts.join('\\n');
   }
 
@@ -309,7 +309,7 @@ class JiraBeadsSync {
 
     // Query Jira
     const issues = await this.queryJiraViaMcp();
-    
+
     if (issues.length === 0) {
       console.log('ℹ️  No issues to sync.');
       return;
@@ -323,7 +323,7 @@ class JiraBeadsSync {
 // CLI handling
 if (require.main === module) {
   const args = process.argv.slice(2);
-  
+
   if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
     console.log(`
 Usage: node sync_jira_to_beads.js PROJECT_KEY [options]

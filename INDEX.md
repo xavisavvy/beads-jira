@@ -31,6 +31,22 @@ This project follows **Agentic AI SDLC** documentation structure for AI agent an
    - Reading paths by role
    - Maintenance guidelines
 
+7. **[ROADMAP.md](ROADMAP.md)** - Development roadmap (UPDATED)
+   - **Phase 0**: CI/CD Foundation (NEW - CRITICAL)
+   - Phase 1-6: UX improvements and features
+   - Success metrics and timeline
+
+8. **[AGENTIC_AI_CICD_ANALYSIS.md](AGENTIC_AI_CICD_ANALYSIS.md)** - CI/CD gap analysis (NEW)
+   - Current state assessment
+   - Critical gaps identified
+   - Implementation recommendations
+   - Code examples and templates
+
+9. **[AGENTIC_AI_CICD_REVIEW_SUMMARY.md](AGENTIC_AI_CICD_REVIEW_SUMMARY.md)** - Review summary (NEW)
+   - Executive overview
+   - Grade breakdown by category
+   - Priority recommendations
+
 ### 🔧 Implementation Files
 
 7. **sync_jira_to_beads.py** - Main synchronization script

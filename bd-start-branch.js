@@ -2,7 +2,7 @@
 /**
  * bd-start-branch - Start working on a beads issue with automatic branch creation
  * Node.js version
- * 
+ *
  * Usage: node bd-start-branch.js <issue-id>
  * Example: node bd-start-branch.js bd-a1b2
  */

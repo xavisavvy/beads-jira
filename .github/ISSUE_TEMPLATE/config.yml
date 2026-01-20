@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 Ask a Question
+    url: https://github.com/steveyegge/beads/discussions
+    about: General questions about beads itself
+  - name: 📖 Documentation
+    url: https://github.com/steveyegge/beads
+    about: Visit the beads documentation
+  - name: 🔒 Security Issue
+    url: https://github.com/YOUR_USERNAME/beads-jira/security/advisories/new
+    about: Report a security vulnerability privately

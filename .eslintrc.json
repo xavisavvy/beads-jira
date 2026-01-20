@@ -1,0 +1,28 @@
+{
+  "env": {
+    "node": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "no-console": "off",
+    "semi": ["error", "always"],
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "indent": ["error", 2],
+    "comma-dangle": ["error", "never"],
+    "no-trailing-spaces": "error"
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    "coverage/",
+    "*.py",
+    "*.cs",
+    "*.ps1",
+    "*.sh"
+  ]
+}
