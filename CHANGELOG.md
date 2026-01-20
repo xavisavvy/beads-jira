@@ -1,4 +1,11 @@
 Changelog
+### [2.0.7](https://github.com/xavisavvy/beads-jira/compare/v2.0.6...v2.0.7) (2026-01-20)
+
+
+### 📝 Documentation
+
+* add cleanup summary documentation ([61f34e3](https://github.com/xavisavvy/beads-jira/commit/61f34e3b011747dbe8c55d71faa16ecfed5850e6))
+
 ### [2.0.6](https://github.com/xavisavvy/beads-jira/compare/v2.0.5...v2.0.6) (2026-01-20)
 
 
