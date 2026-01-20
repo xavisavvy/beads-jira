@@ -1,4 +1,11 @@
 Changelog
+### [3.0.8](https://github.com/xavisavvy/beads-jira/compare/v3.0.7...v3.0.8) (2026-01-20)
+
+
+### 📝 Documentation
+
+* **roadmap:** simplify to use beads as source of truth ([1dddb7e](https://github.com/xavisavvy/beads-jira/commit/1dddb7e4bbf96ead3e4ba0ec5c3fd335ff4c4e93))
+
 ### [3.0.7](https://github.com/xavisavvy/beads-jira/compare/v3.0.6...v3.0.7) (2026-01-20)
 
 
