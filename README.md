@@ -112,7 +112,7 @@ npm run finish -- bd-a1b2
 
 **Alternative:** Use `node run start bd-a1b2` or direct scripts.
 
-See [WORKFLOW_HELPERS.md](WORKFLOW_HELPERS.md) for details.
+See [docs/WORKFLOW_HELPERS.md](docs/WORKFLOW_HELPERS.md) for details.
 
 ## How It Works
 
@@ -214,8 +214,8 @@ JIRA_COMPONENT="different-component"
 
 ## Troubleshooting
 
-> 💡 **Quick fixes:** See [QUICKREF.md](QUICKREF.md#troubleshooting)  
-> 🌐 **Offline issues:** See [OFFLINE_BEHAVIOR.md](OFFLINE_BEHAVIOR.md)
+> 💡 **Quick fixes:** See [docs/QUICKREF.md](docs/QUICKREF.md#troubleshooting)  
+> 🌐 **Offline issues:** See [docs/guides/OFFLINE_BEHAVIOR.md](docs/guides/OFFLINE_BEHAVIOR.md)
 
 ### Common Issues
 
@@ -250,7 +250,7 @@ which bd  # Should show the bd path
 python3 scripts/sync_jira_to_beads.py PROJ --use-example-data
 ```
 
-See [OFFLINE_BEHAVIOR.md](OFFLINE_BEHAVIOR.md) for details on example data vs production usage.
+See [docs/guides/OFFLINE_BEHAVIOR.md](docs/guides/OFFLINE_BEHAVIOR.md) for details on example data vs production usage.
 
 #### "Not a beads repository"
 
@@ -265,7 +265,7 @@ bd init
 #### Issues Not Syncing (Returns 0 issues)
 
 **Possible causes:**
-1. Offline/no network (expected - see [OFFLINE_BEHAVIOR.md](OFFLINE_BEHAVIOR.md))
+1. Offline/no network (expected - see [docs/guides/OFFLINE_BEHAVIOR.md](docs/guides/OFFLINE_BEHAVIOR.md))
 2. Wrong project key
 3. Component doesn't exist
 4. No open issues in Jira
@@ -303,14 +303,14 @@ git branch  # Should show * main or * master
 
 ### Getting Help
 
-1. Check [QUICKREF.md](QUICKREF.md) for command syntax
-2. Review [EXAMPLE_WORKFLOW.md](EXAMPLE_WORKFLOW.md) for usage patterns
-3. See [OFFLINE_BEHAVIOR.md](OFFLINE_BEHAVIOR.md) for network issues
+1. Check [docs/QUICKREF.md](docs/QUICKREF.md) for command syntax
+2. Review [docs/EXAMPLE_WORKFLOW.md](docs/EXAMPLE_WORKFLOW.md) for usage patterns
+3. See [docs/guides/OFFLINE_BEHAVIOR.md](docs/guides/OFFLINE_BEHAVIOR.md) for network issues
 4. Check beads documentation: https://github.com/steveyegge/beads
 
 ## Example Workflow
 
-> 📖 **For detailed workflows:** See [EXAMPLE_WORKFLOW.md](EXAMPLE_WORKFLOW.md)
+> 📖 **For detailed workflows:** See [docs/EXAMPLE_WORKFLOW.md](docs/EXAMPLE_WORKFLOW.md)
 
 ### Daily Usage Pattern
 
@@ -344,11 +344,11 @@ git commit -m "Implemented feature"
 git push
 ```
 
-For complete workflows including AI agent integration, see [EXAMPLE_WORKFLOW.md](EXAMPLE_WORKFLOW.md).
+For complete workflows including AI agent integration, see [docs/EXAMPLE_WORKFLOW.md](docs/EXAMPLE_WORKFLOW.md).
 
 ## Integration with AI Agents
 
-> 📖 **For complete AI integration examples:** See [EXAMPLE_WORKFLOW.md](EXAMPLE_WORKFLOW.md#ai-agent-example-session)
+> 📖 **For complete AI integration examples:** See [docs/EXAMPLE_WORKFLOW.md](docs/EXAMPLE_WORKFLOW.md#ai-agent-example-session)
 
 The synced beads issues are perfect for AI coding agents. Here's a quick example:
 
@@ -390,7 +390,7 @@ When you discover new work related to a Jira issue:
 - Link it: `bd dep add <new-issue> <jira-issue> --type discovered-from`
 ```
 
-For detailed AI agent workflows, see [EXAMPLE_WORKFLOW.md](EXAMPLE_WORKFLOW.md).
+For detailed AI agent workflows, see [docs/EXAMPLE_WORKFLOW.md](docs/EXAMPLE_WORKFLOW.md).
 
 ## Files
 
@@ -400,8 +400,8 @@ For detailed AI agent workflows, see [EXAMPLE_WORKFLOW.md](EXAMPLE_WORKFLOW.md).
 | `install.sh` | Interactive installation wizard |
 | `INDEX.md` | Package overview and navigation |
 | `README.md` | Complete setup guide (this file) |
-| `QUICKREF.md` | Quick command reference |
-| `EXAMPLE_WORKFLOW.md` | Real-world usage scenarios |
+| `docs/QUICKREF.md` | Quick command reference |
+| `docs/EXAMPLE_WORKFLOW.md` | Real-world usage scenarios |
 | `OFFLINE_BEHAVIOR.md` | Network failure handling |
 
 ## Documentation Guide
@@ -409,17 +409,17 @@ For detailed AI agent workflows, see [EXAMPLE_WORKFLOW.md](EXAMPLE_WORKFLOW.md).
 **For humans:**
 1. Start with [INDEX.md](INDEX.md) - Package overview
 2. Read this file (README.md) - Setup and architecture
-3. Check [QUICKREF.md](QUICKREF.md) - Command reference
-4. Review [EXAMPLE_WORKFLOW.md](EXAMPLE_WORKFLOW.md) - Daily workflow
+3. Check [docs/QUICKREF.md](docs/QUICKREF.md) - Command reference
+4. Review [docs/EXAMPLE_WORKFLOW.md](docs/EXAMPLE_WORKFLOW.md) - Daily workflow
 
 **For AI agents:**
-1. Read [QUICKREF.md](QUICKREF.md) - Command syntax
-2. Study [EXAMPLE_WORKFLOW.md](EXAMPLE_WORKFLOW.md) - Integration patterns
+1. Read [docs/QUICKREF.md](docs/QUICKREF.md) - Command syntax
+2. Study [docs/EXAMPLE_WORKFLOW.md](docs/EXAMPLE_WORKFLOW.md) - Integration patterns
 3. Reference this file - Field mappings and labels
 
 **For troubleshooting:**
-1. Check [QUICKREF.md](QUICKREF.md#troubleshooting) - Quick fixes
-2. See [OFFLINE_BEHAVIOR.md](OFFLINE_BEHAVIOR.md) - Network issues
+1. Check [docs/QUICKREF.md](docs/QUICKREF.md#troubleshooting) - Quick fixes
+2. See [docs/guides/OFFLINE_BEHAVIOR.md](docs/guides/OFFLINE_BEHAVIOR.md) - Network issues
 3. Review this file - Detailed troubleshooting
 
 ## Future Enhancements
@@ -449,9 +449,9 @@ See [INDEX.md](INDEX.md) for architecture details.
 ## Related Documentation
 
 - **[INDEX.md](INDEX.md)** - Package overview and architecture
-- **[QUICKREF.md](QUICKREF.md)** - Command reference
-- **[EXAMPLE_WORKFLOW.md](EXAMPLE_WORKFLOW.md)** - Usage scenarios
-- **[OFFLINE_BEHAVIOR.md](OFFLINE_BEHAVIOR.md)** - Network handling
+- **[docs/QUICKREF.md](docs/QUICKREF.md)** - Command reference
+- **[docs/EXAMPLE_WORKFLOW.md](docs/EXAMPLE_WORKFLOW.md)** - Usage scenarios
+- **[docs/guides/OFFLINE_BEHAVIOR.md](docs/guides/OFFLINE_BEHAVIOR.md)** - Network handling
 
 ## License
 

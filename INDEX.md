@@ -67,10 +67,10 @@ This project follows **Agentic AI SDLC** documentation structure for AI agent an
 
 - **[ROADMAP.md](ROADMAP.md)** - Current roadmap and priorities
 - **[CHANGELOG.md](CHANGELOG.md)** - Version history
-- **[TODOS_FOR_BEADS.md](TODOS_FOR_BEADS.md)** - Future work items
-   - Success metrics and timeline
+- ~~**TODOS_FOR_BEADS.md**~~ - Converted to 10 beads issues (see `bd list`)
+   - Track work items in beads database
 
-10. **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - Project status
+10. **[docs/history/IMPLEMENTATION_SUMMARY.md](docs/history/IMPLEMENTATION_SUMMARY.md)** - Project status
     - What we've built
     - Phase 0 completion summary
     - Recent deliverables
@@ -78,68 +78,68 @@ This project follows **Agentic AI SDLC** documentation structure for AI agent an
 
 ### 🔧 CI/CD & Quality
 
-11. **[PHASE_0_COMPLETE.md](PHASE_0_COMPLETE.md)** - Phase 0 summary
+11. **[docs/history/PHASE_0_COMPLETE.md](docs/history/PHASE_0_COMPLETE.md)** - Phase 0 summary
     - CI/CD pipeline details
     - Test infrastructure
     - Code quality tools
     - Git hooks and automation
 
-12. **[SEMANTIC_VERSIONING_COMPLETE.md](SEMANTIC_VERSIONING_COMPLETE.md)** - Versioning guide
+12. **[docs/history/SEMANTIC_VERSIONING_COMPLETE.md](docs/history/SEMANTIC_VERSIONING_COMPLETE.md)** - Versioning guide
     - Semantic versioning implementation
     - Conventional commits
     - Automated releases
     - Changelog generation
 
-13. **[CONVENTIONAL_COMMITS.md](CONVENTIONAL_COMMITS.md)** - Commit standards
+13. **[docs/guides/CONVENTIONAL_COMMITS.md](docs/guides/CONVENTIONAL_COMMITS.md)** - Commit standards
     - Commit message format
     - Type definitions
     - Examples and best practices
 
-14. **[AGENTIC_AI_CICD_ANALYSIS.md](AGENTIC_AI_CICD_ANALYSIS.md)** - CI/CD analysis
+14. **[docs/architecture/AGENTIC_AI_CICD_ANALYSIS.md](docs/architecture/AGENTIC_AI_CICD_ANALYSIS.md)** - CI/CD analysis
     - Gap analysis
     - Implementation recommendations
     - Code examples and templates
 
-15. **[AGENTIC_AI_CICD_REVIEW_SUMMARY.md](AGENTIC_AI_CICD_REVIEW_SUMMARY.md)** - Review summary
+15. **[docs/architecture/AGENTIC_AI_CICD_REVIEW_SUMMARY.md](docs/architecture/AGENTIC_AI_CICD_REVIEW_SUMMARY.md)** - Review summary
     - Executive overview
     - Grade breakdown
     - Priority recommendations
 
 ### 📚 Architecture & Design
 
-16. **[DOCUMENTATION.md](DOCUMENTATION.md)** - Documentation organization
+16. **[docs/DOCUMENTATION.md](docs/DOCUMENTATION.md)** - Documentation organization
     - Agentic AI SDLC principles
     - Reading paths by role
     - Maintenance guidelines
 
-17. **[LANGUAGE_SELECTION.md](LANGUAGE_SELECTION.md)** - Multi-language strategy
+17. **[docs/architecture/LANGUAGE_SELECTION.md](docs/architecture/LANGUAGE_SELECTION.md)** - Multi-language strategy
     - Python, Node.js, C# implementations
     - When to use each
     - Cross-platform considerations
 
-18. **[PACKAGING_STRATEGY.md](PACKAGING_STRATEGY.md)** - Distribution approach
+18. **[docs/architecture/PACKAGING_STRATEGY.md](docs/architecture/PACKAGING_STRATEGY.md)** - Distribution approach
     - Installation methods
     - Dependency management
     - Platform-specific packaging
 
-19. **[ENTERPRISE_DEPLOYMENT.md](ENTERPRISE_DEPLOYMENT.md)** - Enterprise setup
+19. **[docs/guides/ENTERPRISE_DEPLOYMENT.md](docs/guides/ENTERPRISE_DEPLOYMENT.md)** - Enterprise setup
     - Self-hosted configurations
     - Security considerations
     - Team scaling strategies
 
 ### 🔗 Integration & Templates
 
-20. **[TEMPLATES_SUMMARY.md](TEMPLATES_SUMMARY.md)** - PR/Issue templates
+20. **[docs/guides/TEMPLATES_SUMMARY.md](docs/guides/TEMPLATES_SUMMARY.md)** - PR/Issue templates
     - GitHub templates
     - GitLab templates
     - Template sync process
 
-21. **[BITBUCKET_INTEGRATION.md](BITBUCKET_INTEGRATION.md)** - Bitbucket notes
+21. **[docs/guides/BITBUCKET_INTEGRATION.md](docs/guides/BITBUCKET_INTEGRATION.md)** - Bitbucket notes
     - Platform limitations
     - Workaround strategies
     - API integration options
 
-22. **[QUICK_START_CARD.md](QUICK_START_CARD.md)** - One-page reference
+22. **[docs/QUICK_START_CARD.md](docs/QUICK_START_CARD.md)** - One-page reference
     - Essential commands
     - Quick troubleshooting
     - Printable reference card
@@ -165,8 +165,8 @@ python3 scripts/sync_jira_to_beads.py YOURPROJECT --component yourcomponent
 
 ### For AI Agents
 ```bash
-# Read QUICKREF.md first for command reference
-# Then check EXAMPLE_WORKFLOW.md for integration patterns
+# Read docs/QUICKREF.md first for command reference
+# Then check docs/EXAMPLE_WORKFLOW.md for integration patterns
 # Use beads commands after sync:
 bd ready --json  # Get available work
 bd show <id>     # Read issue details
@@ -205,22 +205,22 @@ Your AI coding agents + local development
 ### New Developer (First Time Setup)
 1. Read [README.md](README.md) - Overview & Installation
 2. Run `./install.sh` - Automated setup
-3. Check [QUICKREF.md](QUICKREF.md) - Common commands
-4. Review [EXAMPLE_WORKFLOW.md](EXAMPLE_WORKFLOW.md) - Daily usage
+3. Check [docs/QUICKREF.md](docs/QUICKREF.md) - Common commands
+4. Review [docs/EXAMPLE_WORKFLOW.md](docs/EXAMPLE_WORKFLOW.md) - Daily usage
 
 ### AI Agent Developer (Integration)
-1. Read [QUICKREF.md](QUICKREF.md) - Command reference
-2. Study [EXAMPLE_WORKFLOW.md](EXAMPLE_WORKFLOW.md) - AI agent examples
+1. Read [docs/QUICKREF.md](docs/QUICKREF.md) - Command reference
+2. Study [docs/EXAMPLE_WORKFLOW.md](docs/EXAMPLE_WORKFLOW.md) - AI agent examples
 3. Reference [README.md](README.md) - Field mappings & labels
 
 ### Operations (Deployment)
 1. Check [README.md](README.md) - Prerequisites & troubleshooting
-2. Review [OFFLINE_BEHAVIOR.md](OFFLINE_BEHAVIOR.md) - Failure modes
-3. Use [QUICKREF.md](QUICKREF.md) - Cron & automation setup
+2. Review [docs/guides/OFFLINE_BEHAVIOR.md](docs/guides/OFFLINE_BEHAVIOR.md) - Failure modes
+3. Use [docs/QUICKREF.md](docs/QUICKREF.md) - Cron & automation setup
 
 ### Troubleshooting
-1. Start with [QUICKREF.md](QUICKREF.md) - Quick fixes
-2. Check [OFFLINE_BEHAVIOR.md](OFFLINE_BEHAVIOR.md) - Network issues
+1. Start with [docs/QUICKREF.md](docs/QUICKREF.md) - Quick fixes
+2. Check [docs/guides/OFFLINE_BEHAVIOR.md](docs/guides/OFFLINE_BEHAVIOR.md) - Network issues
 3. See [README.md](README.md) - Detailed troubleshooting
 
 ---
@@ -354,5 +354,5 @@ MIT License - Same as [beads](https://github.com/steveyegge/beads)
 
 **Ready to start?** 
 - **Humans**: See [README.md](README.md) for detailed setup
-- **AI Agents**: See [QUICKREF.md](QUICKREF.md) for commands
+- **AI Agents**: See [docs/QUICKREF.md](docs/QUICKREF.md) for commands
 - **Everyone**: Run `./install.sh` to begin!
