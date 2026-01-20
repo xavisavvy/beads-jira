@@ -1,5 +1,15 @@
 # Jira-Beads Sync Integration
 
+[![CI](https://github.com/xavisavvy/beads-jira/actions/workflows/ci.yml/badge.svg)](https://github.com/xavisavvy/beads-jira/actions/workflows/ci.yml)
+[![Version](https://img.shields.io/badge/version-2.0.6-blue.svg)](https://github.com/xavisavvy/beads-jira/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org)
+[![Tests](https://img.shields.io/badge/tests-301%20passing-success.svg)](https://github.com/xavisavvy/beads-jira/actions/workflows/ci.yml)
+[![Coverage](https://img.shields.io/badge/coverage-18.8%25-yellow.svg)](./coverage/lcov-report/index.html)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/xavisavvy/beads-jira/graphs/commit-activity)
+
 **Automatically sync Jira issues to your local [beads](https://github.com/steveyegge/beads) issue tracker via the Atlassian Rovo MCP server.**
 
 > 🎉 **Phase 0 Complete!** CI/CD pipeline, automated testing, and code quality tools are now live!
