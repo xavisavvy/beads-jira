@@ -4,16 +4,45 @@
 
 ---
 
+## 🚀 Workflow Helpers (Recommended)
+
+### Start Working on Issue
+```bash
+# Automatically creates branch and starts issue
+npm run start -- bd-a1b2
+
+# Or: node run start bd-a1b2
+
+# Example output:
+# ✓ Created branch: bug/FRONT-235-fix-button-alignment
+# ✓ Started issue: bd-a1b2
+```
+
+### Finish Issue
+```bash
+# Automatically marks done, pushes, and creates PR
+npm run finish -- bd-a1b2
+
+# Or: node run finish bd-a1b2
+
+# Options:
+npm run finish -- bd-a1b2 --draft      # Draft PR
+node run finish bd-a1b2 --draft        # Same
+```
+
+**See [WORKFLOW_HELPERS.md](WORKFLOW_HELPERS.md) for complete guide.**
+
+---
+
 ## Installation (One-Time)
 
 ```bash
 # Automated installation
-./install.sh
+./install.sh    # Linux/macOS
+.\install.ps1   # Windows
 
-# Manual installation
-mkdir -p scripts
-cp sync_jira_to_beads.py scripts/
-python3 scripts/sync_jira_to_beads.py --help
+# Or using npm
+npm run install
 ```
 
 ---
@@ -21,17 +50,23 @@ python3 scripts/sync_jira_to_beads.py --help
 ## Core Sync Commands
 
 ```bash
-# Sync all issues from a project
-python3 scripts/sync_jira_to_beads.py PROJECTKEY
+# Sync all issues from a project (npm)
+npm run sync -- PROJECTKEY
 
-# Sync specific component
-python3 scripts/sync_jira_to_beads.py PROJECTKEY --component backend-api
+# Sync specific component (npm)
+npm run sync -- PROJECTKEY --component backend-api
 
-# Use example data for testing (DO NOT use in production)
-python3 scripts/sync_jira_to_beads.py PROJECTKEY --use-example-data
+# Or using run.js directly
+node run sync PROJECTKEY
+node run sync PROJECTKEY --component backend-api
 
-# Custom MCP URL
-python3 scripts/sync_jira_to_beads.py PROJECTKEY --mcp-url https://custom.mcp.com/v1/mcp
+# Test with example data
+npm run test
+# or: node run test
+
+# Show config
+npm run config
+# or: node run config
 ```
 
 ---

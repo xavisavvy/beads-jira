@@ -63,6 +63,23 @@ else
     exit 1
 fi
 
+# Copy helper scripts for workflow automation
+echo -e "${BLUE}Installing workflow helpers...${NC}"
+
+if [ -f "bd-start-branch" ]; then
+    cp bd-start-branch "$REPO_ROOT/scripts/"
+    chmod +x "$REPO_ROOT/scripts/bd-start-branch"
+    echo -e "${GREEN}✓${NC} Installed bd-start-branch"
+fi
+
+if [ -f "bd-finish" ]; then
+    cp bd-finish "$REPO_ROOT/scripts/"
+    chmod +x "$REPO_ROOT/scripts/bd-finish"
+    echo -e "${GREEN}✓${NC} Installed bd-finish"
+fi
+
+echo ""
+
 # Install git hook
 GIT_HOOKS_DIR="$REPO_ROOT/.git/hooks"
 if [ ! -d "$GIT_HOOKS_DIR" ]; then
@@ -165,4 +182,10 @@ echo "2. The sync will run automatically on 'git pull' (main/master branch only)
 echo
 echo "3. Configure Atlassian MCP if not already done:"
 echo "   npx -y mcp-remote@0.1.13 https://mcp.atlassian.com/v1/mcp"
+echo
+echo "4. Use workflow helpers for easier development:"
+echo "   npm run start -- bd-a1b2   # Start issue + create branch"
+echo "   npm run finish -- bd-a1b2  # Finish issue + create PR"
+echo
+echo "   Or: node run start bd-a1b2 / node run finish bd-a1b2"
 echo

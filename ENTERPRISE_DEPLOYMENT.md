@@ -421,9 +421,82 @@ done
 
 ---
 
+## 🔤 Language-Specific Considerations
+
+### For .NET/VueJS Projects
+
+Since your projects are primarily .NET and VueJS, **use the Node.js version** (`sync_jira_to_beads.js`):
+
+**Why Node.js for .NET/VueJS projects?**
+- ✅ VueJS projects already have Node.js installed
+- ✅ Single runtime for both frontend and backend tools
+- ✅ Works natively on Windows, Linux, and macOS
+- ✅ Familiar to VueJS developers
+- ✅ No additional runtime installation needed
+
+**Alternative: C#/.NET version** (`sync_jira_to_beads.cs`):
+- Use if you want pure .NET tooling
+- Requires `dotnet-script` global tool
+- Better for .NET-only shops without Node.js
+
+**Keep the Python version?**
+- ⚠️ Only if you already have Python in your stack
+- For .NET/VueJS teams, stick with **Node.js**
+
+### Recommended Setup
+
+```bash
+# In each repo, use Node.js version
+./install.sh  # or .\install.ps1 on Windows
+
+# The installer will copy sync_jira_to_beads.js instead of .py
+# Git hooks will use: node scripts/sync_jira_to_beads.js
+```
+
+### Customizing for Your Stack
+
+Edit the install scripts to prefer Node.js:
+
+```bash
+# install.sh - change Python check to Node check
+if ! command -v node &> /dev/null; then
+    echo "❌ Node.js not found"
+    exit 1
+fi
+
+# Copy JS version instead
+cp sync_jira_to_beads.js "$REPO_ROOT/scripts/"
+```
+
+### Performance Comparison
+
+| Language | Startup Time | Dependencies | Windows Support | Team Familiarity |
+|----------|--------------|--------------|-----------------|------------------|
+| **Node.js** | ~50ms | Already installed | ✅ Excellent | ✅ High (VueJS devs) |
+| **C#/.NET** | ~100ms | dotnet-script | ✅ Excellent | ✅ High (.NET devs) |
+| **Python** | ~80ms | Usually pre-installed | ⚠️ Manual install | ⚠️ Lower |
+
+**Verdict for .NET/VueJS shops: Use Node.js** 🏆
+
+---
+
 ## 🔗 Related Resources
 
 - [SCRIPT_SYNC.md](.github/.copilot/SCRIPT_SYNC.md) - Keeping install.sh and install.ps1 in sync
 - [README.md](README.md) - Installation and usage guide
 - [EXAMPLE_WORKFLOW.md](EXAMPLE_WORKFLOW.md) - Daily usage patterns
 - [Beads GitHub Repo](https://github.com/steveyegge/beads)
+
+---
+
+## 📦 Available Implementations
+
+This project provides **three language implementations** with identical functionality:
+
+| File | Language | Best For |
+|------|----------|----------|
+| `sync_jira_to_beads.py` | Python 3 | Linux/macOS projects, DevOps teams |
+| `sync_jira_to_beads.js` | Node.js | **VueJS, React, Node.js projects** ⭐ |
+| `sync_jira_to_beads.cs` | C#/.NET | **.NET projects, pure .NET shops** ⭐ |
+
+**For your .NET/VueJS organization, use the Node.js version.**

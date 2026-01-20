@@ -81,6 +81,21 @@ if (Test-Path $syncScript) {
     exit 1
 }
 
+# Copy helper scripts for workflow automation
+Write-ColorOutput "Installing workflow helpers..." "Cyan"
+
+if (Test-Path "bd-start-branch.ps1") {
+    Copy-Item "bd-start-branch.ps1" -Destination (Join-Path $scriptsDir "bd-start-branch.ps1") -Force
+    Write-ColorOutput "✓ Installed bd-start-branch.ps1" "Green"
+}
+
+if (Test-Path "bd-finish.ps1") {
+    Copy-Item "bd-finish.ps1" -Destination (Join-Path $scriptsDir "bd-finish.ps1") -Force
+    Write-ColorOutput "✓ Installed bd-finish.ps1" "Green"
+}
+
+Write-Host ""
+
 # Install git hook
 $GIT_HOOKS_DIR = Join-Path $REPO_ROOT ".git\hooks"
 if (-not (Test-Path $GIT_HOOKS_DIR)) {
@@ -246,4 +261,10 @@ Write-Host "2. The sync will run automatically on 'git pull' (main/master branch
 Write-Host ""
 Write-Host "3. Configure Atlassian MCP if not already done:"
 Write-Host "   npx -y mcp-remote@0.1.13 https://mcp.atlassian.com/v1/mcp"
+Write-Host ""
+Write-Host "4. Use workflow helpers for easier development:"
+Write-Host "   npm run start -- bd-a1b2   # Start issue + create branch"
+Write-Host "   npm run finish -- bd-a1b2  # Finish issue + create PR"
+Write-Host ""
+Write-Host "   Or: node run start bd-a1b2 / node run finish bd-a1b2"
 Write-Host ""

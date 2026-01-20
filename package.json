@@ -1,0 +1,16 @@
+{
+  "name": "jira-beads-sync-helpers",
+  "version": "1.0.0",
+  "description": "Workflow automation for Jira-Beads sync",
+  "scripts": {
+    "install": "node run.js install",
+    "sync": "node run.js sync",
+    "start": "node run.js start",
+    "finish": "node run.js finish",
+    "test": "node run.js test",
+    "config": "node run.js config"
+  },
+  "keywords": ["jira", "beads", "workflow", "automation"],
+  "author": "Your Organization",
+  "license": "MIT"
+}

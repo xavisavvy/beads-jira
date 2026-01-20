@@ -1,22 +1,39 @@
 # Script Synchronization Guide
 
-This project maintains parallel installation scripts for cross-platform compatibility:
+This project maintains parallel scripts for cross-platform and multi-language compatibility:
+
+## Installation Scripts
 - `install.sh` - Bash script for Linux/macOS/WSL
 - `install.ps1` - PowerShell script for Windows
 
+## Sync Script Implementations
+- `sync_jira_to_beads.py` - Python 3 (original)
+- `sync_jira_to_beads.js` - Node.js (for VueJS/Node projects)
+- `sync_jira_to_beads.cs` - C#/.NET (for .NET projects)
+
 ## 🔄 Keeping Scripts in Sync
 
-**IMPORTANT**: When modifying either installation script, both versions MUST be updated to maintain feature parity.
+**IMPORTANT**: When modifying functionality:
+1. **Installation scripts** - Both `install.sh` and `install.ps1` must be updated
+2. **Sync logic** - All three implementations (`.py`, `.js`, `.cs`) must be updated
 
 ### For AI Assistants (Copilot/Claude)
 
 When asked to modify installation logic:
 
-1. **Always update BOTH scripts** - Make equivalent changes to both `install.sh` and `install.ps1`
-2. **Test the logic** - Ensure the same functionality works on both platforms
-3. **Preserve platform idioms** - Use native commands and conventions for each platform:
+1. **Always update BOTH installation scripts** - Make equivalent changes to both `install.sh` and `install.ps1`
+2. **Preserve platform idioms** - Use native commands for each platform:
    - Bash: `command -v`, `$VARIABLE`, forward slashes
    - PowerShell: `Get-Command`, `$Variable`, backslashes
+
+When asked to modify sync logic (Jira query, field mapping, beads commands):
+
+1. **Always update ALL THREE sync implementations** - Make equivalent changes to `.py`, `.js`, and `.cs`
+2. **Preserve language idioms** - Use native patterns for each language:
+   - Python: `snake_case`, list comprehensions, `subprocess.run()`
+   - JavaScript: `camelCase`, async/await, `execSync()`
+   - C#: `PascalCase`, LINQ, `Process.Start()`
+3. **Test the logic** - Ensure the same functionality works in all languages
 4. **Check this file** - Review this guide before making changes
 
 ### Functional Equivalence Map
@@ -54,7 +71,7 @@ The scripts create git hooks that run on `git pull`. Both versions create:
 
 ### Checklist for Updates
 
-When modifying installation logic, verify:
+When modifying **installation logic**, verify:
 
 - [ ] Both `install.sh` and `install.ps1` are updated
 - [ ] Functionality is equivalent (same checks, same outputs)
@@ -64,7 +81,20 @@ When modifying installation logic, verify:
 - [ ] Error handling is consistent
 - [ ] User prompts are similar
 - [ ] Generated files (hooks, configs) work on both platforms
-- [ ] This guide is updated if new patterns are introduced
+
+When modifying **sync logic** (Jira queries, field mapping, beads integration), verify:
+
+- [ ] All three implementations (`.py`, `.js`, `.cs`) are updated
+- [ ] Same Jira query logic (JQL building, filtering)
+- [ ] Same field mappings (priority, issue type, labels)
+- [ ] Same beads commands (`bd create`, `bd edit`, `bd label`)
+- [ ] Same error handling and offline behavior
+- [ ] Same output messages and formatting
+- [ ] Language-specific idioms are used correctly
+- [ ] All three produce identical beads issues from same Jira data
+
+When modifying either, update:
+- [ ] This guide if new patterns are introduced
 
 ### Testing
 
@@ -84,24 +114,61 @@ cd C:\path\to\test\repo
 
 ## 🤖 AI Assistant Instructions
 
+### For Installation Script Changes
+
 When you receive a request to modify installation functionality:
 
-1. **Read both scripts first** to understand current implementation
+1. **Read both scripts first** (`install.sh` and `install.ps1`)
 2. **Make changes to BOTH files** in the same response
 3. **Use the equivalence map** above for platform-specific commands
 4. **Preserve formatting** and structure of each script
 5. **Update this guide** if you introduce new patterns
-6. **Explain the changes** and note which lines were modified in each file
 
-### Example Workflow
+**Example**: "Add a check for Node.js version"
+- Update `install.sh`: Use `node --version | grep -oE 'v[0-9]+' | sed 's/v//'`
+- Update `install.ps1`: Use `node --version | Select-String 'v(\d+)' | ...`
 
-User request: "Add a check for Python 3.8+"
+### For Sync Logic Changes
+
+When you receive a request to modify sync functionality:
+
+1. **Read all three implementations first** (`.py`, `.js`, `.cs`)
+2. **Make changes to ALL THREE files** in the same response
+3. **Use language-specific idioms** (see maps below)
+4. **Preserve structure** and keep implementations parallel
+5. **Update this guide** if you introduce new patterns
+
+**Example**: "Add support for syncing Jira labels"
 
 Your response should:
-1. Add Python version check to `install.sh` using `python3 --version`
-2. Add equivalent check to `install.ps1` using `python --version`
-3. Use appropriate error messages for each platform
-4. Update both scripts in parallel in one response
+1. Update Python version: Add to `_get_example_data()`, update `sync_to_beads()` loop
+2. Update Node.js version: Add to `getExampleData()`, update `syncToBeads()` loop
+3. Update C# version: Add to `GetExampleData()`, update `SyncToBeadsAsync()` loop
+4. Use language idioms: Python `for label in labels`, JS `labels.forEach()`, C# `foreach (var label in labels)`
+
+### Language Equivalence Maps
+
+#### Command Execution
+| Task | Python | Node.js | C# |
+|------|--------|---------|-----|
+| Run command | `subprocess.run(['bd', 'ls'])` | `execSync('bd ls')` | `Process.Start("bd", "ls")` |
+| Get output | `result.stdout.decode()` | `execSync('bd ls', {encoding: 'utf-8'})` | `process.StandardOutput.ReadToEnd()` |
+| Parse JSON | `json.loads(output)` | `JSON.parse(output)` | `JsonSerializer.Deserialize<T>(output)` |
+
+#### Naming Conventions
+| Element | Python | Node.js | C# |
+|---------|--------|---------|-----|
+| Functions | `snake_case` | `camelCase` | `PascalCase` |
+| Variables | `snake_case` | `camelCase` | `camelCase` |
+| Classes | `PascalCase` | `PascalCase` | `PascalCase` |
+| Constants | `UPPER_SNAKE` | `UPPER_SNAKE` or `camelCase` | `PascalCase` |
+
+#### Iteration
+| Task | Python | Node.js | C# |
+|------|--------|---------|-----|
+| Loop list | `for item in items:` | `items.forEach(item => {})` | `foreach (var item in items)` |
+| Map | `[x*2 for x in items]` | `items.map(x => x*2)` | `items.Select(x => x*2)` |
+| Filter | `[x for x in items if x>0]` | `items.filter(x => x>0)` | `items.Where(x => x>0)` |
 
 ## 📝 Notes
 

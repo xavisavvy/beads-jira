@@ -49,6 +49,7 @@ cd /path/to/your/project
 The installer will:
 - Check for beads and initialize if needed
 - Copy the sync script to `scripts/sync_jira_to_beads.py`
+- Install workflow helpers (`bd-start-branch`, `bd-finish`)
 - Optionally install a git post-merge hook
 - Create a config file at `.jira-beads-config`
 
@@ -66,11 +67,13 @@ Keep this terminal session running, or configure it in your IDE/client.
 ### 3. Test Manual Sync
 
 ```bash
-# Sync all issues from a project
-python3 scripts/sync_jira_to_beads.py PROJ
+# Using npm (recommended)
+npm run sync -- PROJ
+npm run sync -- PROJ --component backend-api
 
-# Sync issues from a specific component
-python3 scripts/sync_jira_to_beads.py PROJ --component backend-api
+# Or using run.js directly
+node run sync PROJ
+node run sync PROJ --component backend-api
 ```
 
 ### 4. Automatic Sync on Git Pull
@@ -80,6 +83,24 @@ If you installed the git hook, the sync will run automatically when you:
 ```bash
 git pull  # Only on main/master branch
 ```
+
+### 5. Workflow Helpers
+
+Streamline your development with automated branch creation and PR creation:
+
+```bash
+# Start working - creates branch automatically
+npm run start -- bd-a1b2
+
+# Make changes, commit...
+
+# Finish - creates PR automatically
+npm run finish -- bd-a1b2
+```
+
+**Alternative:** Use `node run start bd-a1b2` or direct scripts.
+
+See [WORKFLOW_HELPERS.md](WORKFLOW_HELPERS.md) for details.
 
 ## How It Works
 
