@@ -13,41 +13,61 @@ This project follows **Agentic AI SDLC** documentation structure for AI agent an
 
 ---
 
-### 🚀 Getting Started (Start Here!)
+## 🚀 Getting Started (Start Here!)
 
-1. **[INDEX.md](INDEX.md)** - Package overview and navigation (you are here)
-2. **[QUICKREF.md](QUICKREF.md)** - Quick command reference and common tasks
-3. **[README.md](README.md)** - Complete setup guide, architecture, and features
-4. **[GETTING_STARTED.md](GETTING_STARTED.md)** - First-time setup walkthrough
+1. **[README.md](README.md)** - Main overview, setup, and features
+2. **[docs/QUICKREF.md](docs/QUICKREF.md)** - Quick command reference
+3. **[docs/GETTING_STARTED.md](docs/GETTING_STARTED.md)** - First-time setup walkthrough
+4. **[docs/QUICK_START_CARD.md](docs/QUICK_START_CARD.md)** - One-page quick start
 
-### 📖 Usage Guides
+---
 
-5. **[EXAMPLE_WORKFLOW.md](EXAMPLE_WORKFLOW.md)** - Real-world usage scenarios
-   - Daily developer workflow
-   - AI agent integration examples
-   - Team collaboration patterns
+## 📖 Core Documentation
 
-6. **[DEVELOPER_WORKFLOWS.md](DEVELOPER_WORKFLOWS.md)** - Advanced workflows
-   - Branch strategies
-   - PR automation
-   - Team coordination
+### User Documentation (`docs/`)
+- **[GETTING_STARTED.md](docs/GETTING_STARTED.md)** - Installation and first steps
+- **[QUICKREF.md](docs/QUICKREF.md)** - Quick reference card
+- **[QUICK_START_CARD.md](docs/QUICK_START_CARD.md)** - One-page guide
+- **[DEVELOPER_WORKFLOWS.md](docs/DEVELOPER_WORKFLOWS.md)** - Daily workflows
+- **[EXAMPLE_WORKFLOW.md](docs/EXAMPLE_WORKFLOW.md)** - Real-world examples
+- **[WORKFLOW_HELPERS.md](docs/WORKFLOW_HELPERS.md)** - Helper scripts
+- **[DOCUMENTATION.md](docs/DOCUMENTATION.md)** - Documentation standards
 
-7. **[WORKFLOW_HELPERS.md](WORKFLOW_HELPERS.md)** - Helper script documentation
-   - bd-start-branch usage
-   - bd-finish automation
-   - Platform-specific features
+### How-To Guides (`docs/guides/`)
+- **[CONVENTIONAL_COMMITS.md](docs/guides/CONVENTIONAL_COMMITS.md)** - Commit message standards
+- **[HUSKY_HOOKS.md](docs/guides/HUSKY_HOOKS.md)** - Git hooks configuration
+- **[BITBUCKET_INTEGRATION.md](docs/guides/BITBUCKET_INTEGRATION.md)** - Bitbucket setup
+- **[OFFLINE_BEHAVIOR.md](docs/guides/OFFLINE_BEHAVIOR.md)** - Offline operation
+- **[ENTERPRISE_DEPLOYMENT.md](docs/guides/ENTERPRISE_DEPLOYMENT.md)** - Enterprise setup
+- **[TEMPLATES_SUMMARY.md](docs/guides/TEMPLATES_SUMMARY.md)** - PR templates
 
-8. **[OFFLINE_BEHAVIOR.md](OFFLINE_BEHAVIOR.md)** - Network failure handling
-   - What happens when offline
-   - Safe failure modes
-   - Example data vs production usage
+### Testing Documentation (`docs/testing/`)
+- **[COVERAGE_BEST_PRACTICES.md](docs/testing/COVERAGE_BEST_PRACTICES.md)** - Testing strategy
+- **[COVERAGE_QUICK_REF.md](docs/testing/COVERAGE_QUICK_REF.md)** - Quick test reference
+- **[COVERAGE_REVIEW_SUMMARY.md](docs/testing/COVERAGE_REVIEW_SUMMARY.md)** - Coverage analysis
 
-### 🎯 Development & Planning
+### Architecture & Design (`docs/architecture/`)
+- **[LANGUAGE_SELECTION.md](docs/architecture/LANGUAGE_SELECTION.md)** - Tech stack decisions
+- **[PACKAGING_STRATEGY.md](docs/architecture/PACKAGING_STRATEGY.md)** - Packaging approach
+- **[AGENTIC_AI_CICD_ANALYSIS.md](docs/architecture/AGENTIC_AI_CICD_ANALYSIS.md)** - AI/CI integration
+- **[AGENTIC_AI_CICD_REVIEW_SUMMARY.md](docs/architecture/AGENTIC_AI_CICD_REVIEW_SUMMARY.md)** - Review summary
+- **[AGENTS.md](docs/architecture/AGENTS.md)** - Agent collaboration
 
-9. **[ROADMAP.md](ROADMAP.md)** - Development roadmap
-   - **Phase 0**: CI/CD Foundation ✅ **COMPLETE**
-   - Phase 1: Enhanced Developer Experience 🎯 **NEXT**
-   - Phase 2-4: Production readiness and features
+### Project History (`docs/history/`)
+- **[PHASE_0_COMPLETE.md](docs/history/PHASE_0_COMPLETE.md)** - Phase 0 summary
+- **[IMPLEMENTATION_SUMMARY.md](docs/history/IMPLEMENTATION_SUMMARY.md)** - Implementation details
+- **[SEMANTIC_VERSIONING_COMPLETE.md](docs/history/SEMANTIC_VERSIONING_COMPLETE.md)** - Versioning setup
+- **[CLEANUP_SUMMARY.md](docs/history/CLEANUP_SUMMARY.md)** - Documentation cleanup
+- **[GITIGNORE_REVIEW.md](docs/history/GITIGNORE_REVIEW.md)** - .gitignore fixes
+- **[ROADMAP_OLD.md](docs/history/ROADMAP_OLD.md)** - Original roadmap (archived)
+
+---
+
+## 🎯 Project Management
+
+- **[ROADMAP.md](ROADMAP.md)** - Current roadmap and priorities
+- **[CHANGELOG.md](CHANGELOG.md)** - Version history
+- **[TODOS_FOR_BEADS.md](TODOS_FOR_BEADS.md)** - Future work items
    - Success metrics and timeline
 
 10. **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - Project status

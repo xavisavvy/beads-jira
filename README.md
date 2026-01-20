@@ -15,11 +15,11 @@
 > 🎉 **Phase 0 Complete!** CI/CD pipeline, automated testing, and code quality tools are now live!
 >
 > 📖 **Documentation Navigation**
-> - **[INDEX.md](INDEX.md)** - Complete documentation index (22 guides)
-> - **[QUICKREF.md](QUICKREF.md)** - Quick command reference
+> - **[INDEX.md](INDEX.md)** - Complete documentation index (organized by category)
+> - **[docs/QUICKREF.md](docs/QUICKREF.md)** - Quick command reference
 > - **[ROADMAP.md](ROADMAP.md)** - Development roadmap (Phase 1 next!)
-> - **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - What we've built
-> - **README.md** - Setup guide (you are here)
+> - **[docs/GETTING_STARTED.md](docs/GETTING_STARTED.md)** - First-time setup guide
+> - **README.md** - Project overview (you are here)
 
 ---
 
