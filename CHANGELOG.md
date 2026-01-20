@@ -1,4 +1,11 @@
 Changelog
+### [3.0.5](https://github.com/xavisavvy/beads-jira/compare/v3.0.4...v3.0.5) (2026-01-20)
+
+
+### ✅ Tests
+
+* add 29 comprehensive integration tests ([4e967b7](https://github.com/xavisavvy/beads-jira/commit/4e967b77d63cd313a29fab8128a930ef201f05b6))
+
 ### [3.0.4](https://github.com/xavisavvy/beads-jira/compare/v3.0.3...v3.0.4) (2026-01-20)
 
 
