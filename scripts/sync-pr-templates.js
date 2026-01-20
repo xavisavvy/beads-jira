@@ -160,3 +160,14 @@ if (args.includes('--check') || args.includes('check')) {
 } else {
   syncTemplates();
 }
+
+// Export for testing
+module.exports = {
+  readTemplate,
+  writeTemplate,
+  normalizeTemplate,
+  checkSync,
+  syncTemplates,
+  TEMPLATES,
+  MASTER_TEMPLATE
+};

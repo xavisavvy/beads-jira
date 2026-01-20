@@ -2,9 +2,13 @@
  * Tests for run.js task runner
  */
 
+const { execSync } = require('child_process');
 const os = require('os');
+const path = require('path');
 
 describe('run.js task runner', () => {
+  const runScript = path.join(__dirname, '..', 'run.js');
+
   describe('Task definitions', () => {
     it('should have defined tasks', () => {
       const tasks = ['help', 'sync', 'start', 'finish', 'test', 'config'];
@@ -39,14 +43,27 @@ describe('run.js task runner', () => {
 
   describe('Help command', () => {
     it('should generate help text without errors', () => {
-      const helpText = `
-╔════════════════════════════════════════════════════════════╗
-║        Jira-Beads Sync - Workflow Automation               ║
-╚════════════════════════════════════════════════════════════╝
-      `;
+      const output = execSync(`node "${runScript}" help`, { encoding: 'utf8' });
+      
+      expect(output).toContain('Jira-Beads Sync');
+      expect(output).toContain('Commands:');
+    });
 
-      expect(helpText).toContain('Jira-Beads Sync');
-      expect(helpText).toContain('Workflow Automation');
+    it('should show help when no arguments provided', () => {
+      const output = execSync(`node "${runScript}"`, { encoding: 'utf8' });
+      
+      expect(output).toContain('Available Commands:');
+    });
+  });
+
+  describe('Task execution', () => {
+    it('should handle invalid tasks gracefully', () => {
+      try {
+        execSync(`node "${runScript}" invalid-task`, { encoding: 'utf8', stderr: 'pipe' });
+      } catch (error) {
+        // Should fail with an error message
+        expect(error.status).not.toBe(0);
+      }
     });
   });
 });
