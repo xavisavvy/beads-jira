@@ -1,4 +1,11 @@
 Changelog
+### [3.0.7](https://github.com/xavisavvy/beads-jira/compare/v3.0.6...v3.0.7) (2026-01-20)
+
+
+### 📝 Documentation
+
+* update roadmap with v3.0.5 progress and Phase 1 status ([3ce6cae](https://github.com/xavisavvy/beads-jira/commit/3ce6caeb5935ad2e742ac009944b4d2480c528ed))
+
 ### [3.0.6](https://github.com/xavisavvy/beads-jira/compare/v3.0.5...v3.0.6) (2026-01-20)
 
 
