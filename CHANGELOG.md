@@ -1,4 +1,11 @@
 Changelog
+### [3.0.6](https://github.com/xavisavvy/beads-jira/compare/v3.0.5...v3.0.6) (2026-01-20)
+
+
+### ✅ Tests
+
+* add comprehensive command mocking infrastructure ([2470cdc](https://github.com/xavisavvy/beads-jira/commit/2470cdcdf5fa2ebb3472917febbaef7f6098e008))
+
 ### [3.0.5](https://github.com/xavisavvy/beads-jira/compare/v3.0.4...v3.0.5) (2026-01-20)
 
 

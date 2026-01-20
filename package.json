@@ -1,6 +1,6 @@
 {
   "name": "jira-beads-sync-helpers",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "Workflow automation for Jira-Beads sync with CI/CD support",
   "scripts": {
     "sync": "node run.js sync",
