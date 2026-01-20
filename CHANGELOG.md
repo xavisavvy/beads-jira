@@ -1,4 +1,11 @@
 Changelog
+### [3.0.1](https://github.com/xavisavvy/beads-jira/compare/v3.0.0...v3.0.1) (2026-01-20)
+
+
+### 📝 Documentation
+
+* reorganize markdown files into structured hierarchy ([42297b9](https://github.com/xavisavvy/beads-jira/commit/42297b96dcbec64979a92694287e28d117213a13))
+
 ## [3.0.0](https://github.com/xavisavvy/beads-jira/compare/v2.1.0...v3.0.0) (2026-01-20)
 
 
