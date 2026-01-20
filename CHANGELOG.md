@@ -1,4 +1,11 @@
 Changelog
+### [2.0.5](https://github.com/xavisavvy/beads-jira/compare/v2.0.4...v2.0.5) (2026-01-20)
+
+
+### ✅ Tests
+
+* improve code coverage to 18.8% with focus on critical paths ([99c0cbc](https://github.com/xavisavvy/beads-jira/commit/99c0cbce4b075a00df516d994bcf231a1423d85c))
+
 ### [2.0.4](https://github.com/xavisavvy/beads-jira/compare/v2.0.3...v2.0.4) (2026-01-20)
 
 
