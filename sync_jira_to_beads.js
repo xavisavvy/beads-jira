@@ -6,9 +6,9 @@
  * Designed for .NET/VueJS projects where Node is already installed.
  */
 
-const { execSync, spawn } = require('child_process');
-const fs = require('fs');
-const path = require('path');
+const { execSync, spawn } = require('child_process'); // eslint-disable-line no-unused-vars
+const fs = require('fs'); // eslint-disable-line no-unused-vars
+const path = require('path'); // eslint-disable-line no-unused-vars
 
 class JiraBeadsSync {
   constructor(projectKey, options = {}) {

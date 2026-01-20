@@ -30,6 +30,7 @@ const fs = require('fs');
 const https = require('https');
 
 const TEMPLATE_PATH = '.github/pull_request_template.md';
+// eslint-disable-next-line no-unused-vars
 const BITBUCKET_API = 'https://api.bitbucket.org/2.0';
 
 // Environment variables

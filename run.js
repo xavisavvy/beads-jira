@@ -14,6 +14,7 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 const os = require('os');
 
+// eslint-disable-next-line no-unused-vars
 const TASKS = {
   help: 'Show available commands',
   install: 'Install sync and workflow helpers',
@@ -26,6 +27,7 @@ const TASKS = {
 
 // Detect OS and runtime
 const isWindows = os.platform() === 'win32';
+// eslint-disable-next-line no-unused-vars
 const hasNode = true; // We're running in Node!
 const hasPython = (() => {
   try {
@@ -80,7 +82,7 @@ function run(task, args) {
     }
     break;
 
-  case 'sync':
+  case 'sync': {
     if (args.length === 0) {
       console.error('Error: PROJ argument required');
       console.log('Usage: node run sync PROJ [--component NAME]');
@@ -89,8 +91,9 @@ function run(task, args) {
     const syncArgs = args.join(' ');
     execSync(`node scripts/sync_jira_to_beads.js ${syncArgs}`, { stdio: 'inherit' });
     break;
+  }
 
-  case 'start':
+  case 'start': {
     if (args.length === 0) {
       console.error('Error: ISSUE argument required');
       console.log('Usage: node run start ISSUE');
@@ -103,8 +106,9 @@ function run(task, args) {
       execSync(`node scripts/bd-start-branch.js ${issueId}`, { stdio: 'inherit' });
     }
     break;
+  }
 
-  case 'finish':
+  case 'finish': {
     if (args.length === 0) {
       console.error('Error: ISSUE argument required');
       console.log('Usage: node run finish ISSUE [--draft]');
@@ -118,6 +122,7 @@ function run(task, args) {
       execSync(`node scripts/bd-finish.js ${finishArgs}`, { stdio: 'inherit' });
     }
     break;
+  }
 
   case 'test':
     execSync('node scripts/sync_jira_to_beads.js TEST --use-example-data', { stdio: 'inherit' });

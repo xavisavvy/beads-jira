@@ -2,12 +2,14 @@
 
 **Automatically sync Jira issues to your local [beads](https://github.com/steveyegge/beads) issue tracker via the Atlassian Rovo MCP server.**
 
+> 🎉 **Phase 0 Complete!** CI/CD pipeline, automated testing, and code quality tools are now live!
+>
 > 📖 **Documentation Navigation**
-> - **[INDEX.md](INDEX.md)** - Package overview and file guide
+> - **[INDEX.md](INDEX.md)** - Complete documentation index (22 guides)
 > - **[QUICKREF.md](QUICKREF.md)** - Quick command reference
-> - **[EXAMPLE_WORKFLOW.md](EXAMPLE_WORKFLOW.md)** - Real-world usage scenarios
-> - **[OFFLINE_BEHAVIOR.md](OFFLINE_BEHAVIOR.md)** - Network failure handling
-> - **README.md** - Complete setup guide (you are here)
+> - **[ROADMAP.md](ROADMAP.md)** - Development roadmap (Phase 1 next!)
+> - **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - What we've built
+> - **README.md** - Setup guide (you are here)
 
 ---
 

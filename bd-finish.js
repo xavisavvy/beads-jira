@@ -176,7 +176,7 @@ function main() {
     }
     break;
 
-  case 'bitbucket':
+  case 'bitbucket': {
     const bbRepoPath = remoteUrl.replace(/.*bitbucket\.org[:/]([^/]+\/[^/.]+)(\.git)?/, '$1');
     try {
       execSync('bb --version', { stdio: 'ignore' });
@@ -192,8 +192,9 @@ function main() {
       console.log(`  https://bitbucket.org/${bbRepoPath}/pull-requests/new?source=${currentBranch}`);
     }
     break;
+  }
 
-  case 'gitlab':
+  case 'gitlab': {
     const glRepoPath = remoteUrl.replace(/.*gitlab[^/]*[:/]([^/]+\/[^/.]+)(\.git)?/, '$1');
     try {
       execSync('glab --version', { stdio: 'ignore' });
@@ -211,6 +212,7 @@ function main() {
       console.log(`  https://gitlab.com/${glRepoPath}/-/merge_requests/new?merge_request[source_branch]=${currentBranch}`);
     }
     break;
+  }
 
   case 'other':
     console.log('\x1b[33m⚠️  Unknown git platform.\x1b[0m');
