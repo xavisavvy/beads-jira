@@ -1,4 +1,11 @@
 Changelog
+### [2.0.2](https://github.com/xavisavvy/beads-jira/compare/v2.0.1...v2.0.2) (2026-01-20)
+
+
+### ✅ Tests
+
+* improve test coverage to 41% ([bfd7651](https://github.com/xavisavvy/beads-jira/commit/bfd76514298234ed0d504246d96a4f8b1c0a9032))
+
 ### [2.0.1](https://github.com/xavisavvy/beads-jira/compare/v2.0.0...v2.0.1) (2026-01-20)
 
 
