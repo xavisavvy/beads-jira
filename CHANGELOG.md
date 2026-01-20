@@ -1,4 +1,11 @@
 Changelog
+### [3.0.4](https://github.com/xavisavvy/beads-jira/compare/v3.0.3...v3.0.4) (2026-01-20)
+
+
+### 📝 Documentation
+
+* fix all broken documentation links ([2b444b3](https://github.com/xavisavvy/beads-jira/commit/2b444b3e75483d1dd5bae129a38450fb646ea216))
+
 ### [3.0.3](https://github.com/xavisavvy/beads-jira/compare/v3.0.2...v3.0.3) (2026-01-20)
 
 
