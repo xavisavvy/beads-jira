@@ -1,4 +1,11 @@
 Changelog
+### [2.0.8](https://github.com/xavisavvy/beads-jira/compare/v2.0.7...v2.0.8) (2026-01-20)
+
+
+### 📝 Documentation
+
+* add status badges to README ([166afa8](https://github.com/xavisavvy/beads-jira/commit/166afa8527f2c883e6da08567180d659ae8c7b75))
+
 ### [2.0.7](https://github.com/xavisavvy/beads-jira/compare/v2.0.6...v2.0.7) (2026-01-20)
 
 
