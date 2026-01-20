@@ -145,6 +145,14 @@ async function main() {
 }
 
 // Export for testing
+module.exports = {
+  slugify,
+  extractJiraKey,
+  buildBranchName,
+  prompt,
+  main
+};
+
 if (require.main === module) {
   main().catch(error => {
     console.error('Error:', error.message);

@@ -153,18 +153,23 @@ function run(task, args) {
   }
 }
 
-// Main
-const task = process.argv[2] || 'help';
-const args = process.argv.slice(3);
+// Export for testing (must be before main execution)
+module.exports = {
+  showHelp,
+  run,
+  isWindows,
+  hasPython
+};
 
-// Export for testing
+// Main execution
 if (require.main === module) {
+  const task = process.argv[2] || 'help';
+  const args = process.argv.slice(3);
+
   try {
     run(task, args);
   } catch (error) {
     console.error(`Error running task "${task}":`, error.message);
     process.exit(1);
   }
-} else {
-  module.exports = { run, showHelp };
 }

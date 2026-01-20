@@ -264,6 +264,14 @@ function main() {
 }
 
 // Export for testing
+module.exports = {
+  showHelp,
+  parseArgs,
+  extractJiraKey,
+  detectPlatform,
+  main
+};
+
 if (require.main === module) {
   main();
 } else {
