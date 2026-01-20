@@ -1,5 +1,18 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npm run lint
-npm run check-pr-templates
+echo "🔍 Running pre-commit checks..."
+
+# Run linter
+echo "  → Running ESLint..."
+npm run lint || exit 1
+
+# Check PR templates are in sync
+echo "  → Checking PR templates..."
+npm run check-pr-templates || exit 1
+
+# Run tests
+echo "  → Running tests..."
+npm test -- --silent --passWithNoTests || exit 1
+
+echo "✅ Pre-commit checks passed!"

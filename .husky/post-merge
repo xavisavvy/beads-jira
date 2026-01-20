@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔄 Post-merge hook running..."
+
+# Check if package.json was changed
+if git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep --quiet "package.json"; then
+  echo "  → package.json changed, running npm install..."
+  npm install
+fi
+
+# Check if package-lock.json was changed
+if git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep --quiet "package-lock.json"; then
+  echo "  → package-lock.json changed, consider running npm install"
+fi
+
+echo "✅ Post-merge checks complete!"
