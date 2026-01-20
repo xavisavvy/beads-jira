@@ -1,4 +1,11 @@
 Changelog
+### [2.0.6](https://github.com/xavisavvy/beads-jira/compare/v2.0.5...v2.0.6) (2026-01-20)
+
+
+### 📝 Documentation
+
+* consolidate TODOs and clean up documentation ([53846af](https://github.com/xavisavvy/beads-jira/commit/53846af158972a1b79dd7df2c827ccf54c3763da))
+
 ### [2.0.5](https://github.com/xavisavvy/beads-jira/compare/v2.0.4...v2.0.5) (2026-01-20)
 
 
