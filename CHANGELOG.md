@@ -1,4 +1,11 @@
 Changelog
+### [2.0.3](https://github.com/xavisavvy/beads-jira/compare/v2.0.2...v2.0.3) (2026-01-20)
+
+
+### ✅ Tests
+
+* improve test coverage and make scripts testable ([0eaf2db](https://github.com/xavisavvy/beads-jira/commit/0eaf2dbb253dde55866f7ccdf556b8c9e6e66f5d))
+
 ### [2.0.2](https://github.com/xavisavvy/beads-jira/compare/v2.0.1...v2.0.2) (2026-01-20)
 
 
