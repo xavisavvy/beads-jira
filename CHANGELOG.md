@@ -1,4 +1,11 @@
 Changelog
+### [2.0.4](https://github.com/xavisavvy/beads-jira/compare/v2.0.3...v2.0.4) (2026-01-20)
+
+
+### 📝 Documentation
+
+* add Phase 0 completion summary ([236bddd](https://github.com/xavisavvy/beads-jira/commit/236bddd1a1510f8931595b366bf4ad9fd1d81567))
+
 ### [2.0.3](https://github.com/xavisavvy/beads-jira/compare/v2.0.2...v2.0.3) (2026-01-20)
 
 
