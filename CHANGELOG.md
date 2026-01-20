@@ -1,4 +1,11 @@
 Changelog
+## [2.1.0](https://github.com/xavisavvy/beads-jira/compare/v2.0.8...v2.1.0) (2026-01-20)
+
+
+### ✨ Features
+
+* enhance Husky git hooks configuration ([76a6cf3](https://github.com/xavisavvy/beads-jira/commit/76a6cf3cf103a866c237dda2cce80271b5bbace3))
+
 ### [2.0.8](https://github.com/xavisavvy/beads-jira/compare/v2.0.7...v2.0.8) (2026-01-20)
 
 
