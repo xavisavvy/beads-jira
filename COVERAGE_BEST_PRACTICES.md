@@ -263,18 +263,21 @@ For CLI tools, focus on:
 
 ## Continuous Improvement
 
-### Next Steps to Increase Coverage
-1. Add integration tests for common workflows
-2. Mock external commands for isolated testing
-3. Extract more pure functions from I/O logic
-4. Add property-based testing for validators
-5. Test error recovery paths more thoroughly
+This project follows an iterative improvement approach. Future enhancements are tracked as beads issues.
+
+### Key Areas for Growth
+1. **Testing**: Gradual coverage improvement (target: 25-30% statements)
+2. **Integration**: End-to-end workflow tests
+3. **Performance**: Benchmarking and optimization
+4. **Platform Support**: GitLab CI configuration
 
 ### Monitoring
 - Track coverage trends over time
 - Aim for 1-2% improvement per sprint
 - Focus on high-value, low-hanging fruit
 - Don't sacrifice code quality for coverage %
+
+See `TODOS_FOR_BEADS.md` for detailed action items to be converted to beads issues.
 
 ## Conclusion
 

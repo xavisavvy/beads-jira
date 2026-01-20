@@ -227,22 +227,17 @@ Applied proven patterns for testing CLI tools:
 
 ## Maintenance Recommendations
 
-### Short Term
-1. ✅ **DONE**: All critical paths tested
-2. ✅ **DONE**: Edge cases covered
-3. ✅ **DONE**: Documentation complete
+### Current Status
+- ✅ All critical paths tested
+- ✅ Edge cases covered
+- ✅ Documentation complete
 
-### Medium Term
-1. Add integration tests for common workflows
-2. Consider property-based testing for validators
-3. Mock external commands for isolated testing
-4. Add performance benchmarks
-
-### Long Term
-1. Aim for 25-30% statement coverage (gradual improvement)
-2. Maintain 40%+ function coverage
-3. Add E2E tests for complete user workflows
-4. Consider snapshot testing for output formats
+### Future Work
+Future enhancements and improvements are tracked as beads issues. See `TODOS_FOR_BEADS.md` for a comprehensive list of planned improvements including:
+- Integration tests for complete workflows
+- Property-based testing for validators
+- Performance benchmarking
+- E2E test suite
 
 ## Conclusion
 
@@ -250,7 +245,7 @@ Applied proven patterns for testing CLI tools:
 
 **Result**: High confidence in code correctness, bug prevention, and safe refactoring - appropriate for a CLI tool with external dependencies.
 
-**Next Steps**: Continue gradual improvement while maintaining focus on high-value tests over arbitrary coverage percentages.
+**Next Steps**: Continue gradual improvement while maintaining focus on high-value tests. All future work items are tracked in beads for priority management.
 
 ---
 

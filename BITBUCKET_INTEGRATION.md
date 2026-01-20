@@ -257,11 +257,13 @@ echo $BITBUCKET_WORKSPACE
 
 ## 💡 Future Improvements
 
-If Bitbucket adds native template support:
-- [ ] Update sync script to include Bitbucket
-- [ ] Remove manual workaround documentation
-- [ ] Deprecate API integration script
-- [ ] Update all documentation
+Future improvements for Bitbucket integration are tracked as beads issues. Key potential enhancements:
+
+- Native template support (if Bitbucket adds this feature)
+- API integration improvements
+- Additional automation options
+
+See [TODOS_FOR_BEADS.md](TODOS_FOR_BEADS.md) for all tracked future work.
 
 ---
 
