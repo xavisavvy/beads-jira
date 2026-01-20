@@ -1,4 +1,6 @@
 Changelog
+### [3.0.2](https://github.com/xavisavvy/beads-jira/compare/v3.0.1...v3.0.2) (2026-01-20)
+
 ### [3.0.1](https://github.com/xavisavvy/beads-jira/compare/v3.0.0...v3.0.1) (2026-01-20)
 
 
