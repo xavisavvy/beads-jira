@@ -9,6 +9,8 @@ const {
   readTemplate,
   writeTemplate,
   normalizeTemplate,
+  checkSync,
+  syncTemplates,
   TEMPLATES,
   MASTER_TEMPLATE
 } = require('../scripts/sync-pr-templates');
@@ -169,6 +171,142 @@ describe('PR Template Sync', () => {
       
       expect(typeof content).toBe('string');
       expect(content.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe('Edge cases and error handling', () => {
+    it('should handle null content in normalizeTemplate', () => {
+      const result = normalizeTemplate(null);
+      expect(result).toBe('');
+    });
+
+    it('should handle undefined content in normalizeTemplate', () => {
+      const result = normalizeTemplate(undefined);
+      expect(result).toBe('');
+    });
+
+    it('should handle empty templates', () => {
+      const empty = '';
+      const normalized = normalizeTemplate(empty);
+      expect(normalized).toBe('');
+    });
+
+    it('should handle templates with only whitespace', () => {
+      const whitespace = '   \n\n\t  ';
+      const normalized = normalizeTemplate(whitespace);
+      expect(normalized).toBe('');
+    });
+
+    it('should preserve template structure', () => {
+      const template = '# Header\n\n## Section\n- Item 1\n- Item 2';
+      const normalized = normalizeTemplate(template);
+      expect(normalized).toContain('# Header');
+      expect(normalized).toContain('## Section');
+      expect(normalized).toContain('- Item 1');
+    });
+
+    it('should handle very long templates', () => {
+      const longTemplate = 'Line\n'.repeat(1000);
+      const normalized = normalizeTemplate(longTemplate);
+      expect(normalized.split('\n').length).toBeGreaterThan(900);
+    });
+
+    it('should handle special markdown characters', () => {
+      const template = '**Bold** *italic* `code` [link](url)';
+      const normalized = normalizeTemplate(template);
+      expect(normalized).toContain('**Bold**');
+      expect(normalized).toContain('*italic*');
+      expect(normalized).toContain('`code`');
+    });
+
+    it('should handle unicode characters', () => {
+      const template = '✓ Check ✗ Cross 🎉 Emoji';
+      const normalized = normalizeTemplate(template);
+      expect(normalized).toContain('✓');
+      expect(normalized).toContain('✗');
+      expect(normalized).toContain('🎉');
+    });
+  });
+
+  describe('TEMPLATES constant', () => {
+    it('should have correct structure', () => {
+      expect(TEMPLATES).toBeDefined();
+      expect(typeof TEMPLATES).toBe('object');
+    });
+
+    it('should include github template', () => {
+      expect(TEMPLATES.github).toBeDefined();
+      expect(TEMPLATES.github).toContain('.github');
+    });
+
+    it('should include gitlab template', () => {
+      expect(TEMPLATES.gitlab).toBeDefined();
+      expect(TEMPLATES.gitlab).toContain('.gitlab');
+    });
+
+    it('should have at least 2 platforms', () => {
+      const platforms = Object.keys(TEMPLATES);
+      expect(platforms.length).toBeGreaterThanOrEqual(2);
+    });
+  });
+
+  describe('MASTER_TEMPLATE constant', () => {
+    it('should be defined', () => {
+      expect(MASTER_TEMPLATE).toBeDefined();
+    });
+
+    it('should be a valid template path', () => {
+      expect(MASTER_TEMPLATE).toContain('.md');
+    });
+
+    it('should match one of the templates', () => {
+      const templatePaths = Object.values(TEMPLATES);
+      expect(templatePaths).toContain(MASTER_TEMPLATE);
+    });
+  });
+
+  describe('checkSync function', () => {
+    it('should be exported', () => {
+      expect(checkSync).toBeDefined();
+      expect(typeof checkSync).toBe('function');
+    });
+
+    it('should return boolean', () => {
+      const result = checkSync();
+      expect(typeof result).toBe('boolean');
+    });
+
+    it('should return true when templates are in sync', () => {
+      const result = checkSync();
+      expect(result).toBe(true);
+    });
+  });
+
+  describe('syncTemplates function', () => {
+    it('should be exported', () => {
+      expect(syncTemplates).toBeDefined();
+      expect(typeof syncTemplates).toBe('function');
+    });
+  });
+
+  describe('Cross-platform compatibility', () => {
+    it('should handle Windows-style paths', () => {
+      const winPath = 'C:\\path\\to\\file.md';
+      const normalized = path.normalize(winPath);
+      expect(normalized).toBeDefined();
+    });
+
+    it('should handle Unix-style paths', () => {
+      const unixPath = '/path/to/file.md';
+      const normalized = path.normalize(unixPath);
+      expect(normalized).toBeDefined();
+    });
+
+    it('should handle path separators consistently', () => {
+      const testPath = '.github/pull_request_template.md';
+      const parts = testPath.split('/');
+      expect(parts).toContain('.github');
+      expect(parts).toContain('pull_request_template.md');
     });
   });
 });

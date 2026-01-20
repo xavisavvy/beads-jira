@@ -25,17 +25,81 @@ function showHelp() {
   console.log('  node bd-finish.js bd-a1b2 --no-push');
 }
 
+function parseArgs(args) {
+  return {
+    issueId: args[0],
+    isDraft: args.includes('--draft'),
+    noPush: args.includes('--no-push'),
+    showHelp: args.length === 0 || args.includes('--help') || args.includes('-h')
+  };
+}
+
+function extractJiraKey(labels) {
+  return labels.find(label => /^[A-Z]+-[0-9]+$/.test(label));
+}
+
+function detectPlatform(remoteUrl) {
+  if (remoteUrl.includes('github.com')) {
+    return 'github';
+  } else if (remoteUrl.includes('bitbucket.org')) {
+    return 'bitbucket';
+  } else if (remoteUrl.includes('gitlab.com')) {
+    return 'gitlab';
+  } else {
+    // Check for self-hosted
+    if (remoteUrl.match(/gitlab/i)) {
+      return 'gitlab';
+    } else if (remoteUrl.match(/bitbucket/i)) {
+      return 'bitbucket';
+    }
+  }
+  return 'other';
+}
+
+function buildPRTitle(issueTitle, jiraKey) {
+  return jiraKey ? `${jiraKey}: ${issueTitle}` : issueTitle;
+}
+
+function buildPRBody(issueId, jiraKey) {
+  if (jiraKey) {
+    return `Closes ${issueId} / ${jiraKey}
+
+## Changes
+- 
+
+## Testing
+- 
+
+## Related
+- Jira: ${jiraKey}
+- Beads: ${issueId}`;
+  } else {
+    return `Closes ${issueId}
+
+## Changes
+- 
+
+## Testing
+- 
+
+## Checklist
+- [ ] Tests added/updated
+- [ ] Documentation updated`;
+  }
+}
+
 function main() {
   const args = process.argv.slice(2);
+  const parsed = parseArgs(args);
 
-  if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
+  if (parsed.showHelp) {
     showHelp();
     process.exit(0);
   }
 
-  const issueId = args[0];
-  const isDraft = args.includes('--draft');
-  const noPush = args.includes('--no-push');
+  const issueId = parsed.issueId;
+  const isDraft = parsed.isDraft;
+  const noPush = parsed.noPush;
 
   console.log(`\x1b[34mFinishing issue ${issueId}...\x1b[0m`);
 
@@ -57,7 +121,7 @@ function main() {
   const issueLabels = issue.labels || [];
 
   // Find Jira key from labels
-  const jiraKey = issueLabels.find(label => /^[A-Z]+-[0-9]+$/.test(label));
+  const jiraKey = extractJiraKey(issueLabels);
 
   console.log(`\x1b[34m📋 Issue: ${issueTitle}\x1b[0m`);
   console.log(`\x1b[34m🏷️  Type: ${issueType}\x1b[0m`);
@@ -114,46 +178,14 @@ function main() {
   console.log(`\x1b[34m🔗 Remote: ${remoteUrl}\x1b[0m`);
 
   // Determine platform
-  let platform = 'other';
-  if (remoteUrl.includes('github.com')) {
-    platform = 'github';
-  } else if (remoteUrl.includes('bitbucket.org')) {
-    platform = 'bitbucket';
-  } else if (remoteUrl.includes('gitlab.com')) {
-    platform = 'gitlab';
-  } else {
-    // Check for self-hosted
-    if (remoteUrl.match(/gitlab/i)) {
-      platform = 'gitlab';
-    } else if (remoteUrl.match(/bitbucket/i)) {
-      platform = 'bitbucket';
-    }
-  }
+  const platform = detectPlatform(remoteUrl);
 
   console.log(`\x1b[34m📦 Platform: ${platform}\x1b[0m`);
   console.log('');
 
   // Build PR title and body
-  const prTitle = jiraKey ? `${jiraKey}: ${issueTitle}` : issueTitle;
-  const prBody = jiraKey
-    ? `Closes ${issueId} / ${jiraKey}
-
-## Changes
-- 
-
-## Testing
-- 
-
-## Related
-- Jira: ${jiraKey}
-- Beads: ${issueId}`
-    : `Closes ${issueId}
-
-## Changes
-- 
-
-## Testing
-- `;
+  const prTitle = buildPRTitle(issueTitle, jiraKey);
+  const prBody = buildPRBody(issueId, jiraKey, issueTitle);
 
   // Create PR based on platform
   switch (platform) {
@@ -235,5 +267,13 @@ function main() {
 if (require.main === module) {
   main();
 } else {
-  module.exports = { main };
+  module.exports = {
+    main,
+    showHelp,
+    parseArgs,
+    extractJiraKey,
+    detectPlatform,
+    buildPRTitle,
+    buildPRBody
+  };
 }

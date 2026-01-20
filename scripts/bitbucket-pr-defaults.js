@@ -249,32 +249,43 @@ function showUsage() {
 }
 
 // Main
-const command = process.argv[2];
+if (require.main === module) {
+  const command = process.argv[2];
 
-switch (command) {
-case 'setup':
-  setup().catch(error => {
-    console.error(`❌ Error: ${error.message}`);
+  switch (command) {
+  case 'setup':
+    setup().catch(error => {
+      console.error(`❌ Error: ${error.message}`);
+      process.exit(1);
+    });
+    break;
+
+  case 'check':
+    check().catch(error => {
+      console.error(`❌ Error: ${error.message}`);
+      process.exit(1);
+    });
+    break;
+
+  case 'help':
+  case '--help':
+  case '-h':
+  case undefined:
+    showUsage();
+    break;
+
+  default:
+    console.error(`Unknown command: ${command}`);
+    console.error('Run with --help for usage information');
     process.exit(1);
-  });
-  break;
-
-case 'check':
-  check().catch(error => {
-    console.error(`❌ Error: ${error.message}`);
-    process.exit(1);
-  });
-  break;
-
-case 'help':
-case '--help':
-case '-h':
-case undefined:
-  showUsage();
-  break;
-
-default:
-  console.error(`Unknown command: ${command}`);
-  console.error('Run with --help for usage information');
-  process.exit(1);
+  }
 }
+
+// Export for testing
+module.exports = {
+  apiRequest,
+  readTemplate,
+  convertTemplate,
+  checkEnv,
+  showUsage
+};

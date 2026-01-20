@@ -268,7 +268,7 @@ class JiraBeadsSync {
       'Low': 3,
       'Lowest': 4
     };
-    return priorityMap[jiraPriority] || 2;
+    return jiraPriority in priorityMap ? priorityMap[jiraPriority] : 2;
   }
 
   /**

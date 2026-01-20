@@ -24,6 +24,25 @@ function prompt(question) {
   });
 }
 
+function slugify(title, maxLength = 50) {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9 -]/g, '')
+    .replace(/ /g, '-')
+    .substring(0, maxLength);
+}
+
+function extractJiraKey(labels) {
+  return labels.find(label => /^[A-Z]+-[0-9]+$/.test(label));
+}
+
+function buildBranchName(issueType, issueId, issueTitle, jiraKey) {
+  const slug = slugify(issueTitle);
+  return jiraKey
+    ? `${issueType}/${jiraKey}-${slug}`
+    : `${issueType}/${issueId}-${slug}`;
+}
+
 async function main() {
   const issueId = process.argv[2];
 
@@ -54,22 +73,10 @@ async function main() {
   const issueLabels = issue.labels || [];
 
   // Find Jira key from labels (format: PROJ-123)
-  const jiraKey = issueLabels.find(label => /^[A-Z]+-[0-9]+$/.test(label));
+  const jiraKey = extractJiraKey(issueLabels);
 
   // Create branch name
-  // Format: <type>/<jira-key>-<slugified-title>
-  // Example: feature/FRONT-234-fix-button-alignment
-
-  // Slugify title
-  const slug = issueTitle
-    .toLowerCase()
-    .replace(/[^a-z0-9 -]/g, '')
-    .replace(/ /g, '-')
-    .substring(0, 50);
-
-  const branchName = jiraKey
-    ? `${issueType}/${jiraKey}-${slug}`
-    : `${issueType}/${issueId}-${slug}`;
+  const branchName = buildBranchName(issueType, issueId, issueTitle, jiraKey);
 
   console.log(`\x1b[34m📋 Issue: ${issueTitle}\x1b[0m`);
   console.log(`\x1b[34m🏷️  Type: ${issueType}\x1b[0m`);
@@ -144,5 +151,11 @@ if (require.main === module) {
     process.exit(1);
   });
 } else {
-  module.exports = { prompt, main };
+  module.exports = {
+    prompt,
+    main,
+    slugify,
+    extractJiraKey,
+    buildBranchName
+  };
 }
