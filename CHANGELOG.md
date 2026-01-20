@@ -1,4 +1,11 @@
 Changelog
+### [2.0.1](https://github.com/xavisavvy/beads-jira/compare/v2.0.0...v2.0.1) (2026-01-20)
+
+
+### 🐛 Bug Fixes
+
+* **ci:** replace markdown link checker with simpler validation ([76c1d57](https://github.com/xavisavvy/beads-jira/commit/76c1d573104eb2c0467a7646e51d9afe5fe888b4))
+
 ## 2.0.0 (2026-01-20)
 
 
