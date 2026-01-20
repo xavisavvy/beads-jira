@@ -1,19 +1,42 @@
 # Roadmap - Jira-Beads Sync Integration
 
-**Status Updates and Future Direction**
+**Using Beads as Source of Truth**
 
 Last Updated: January 20, 2026
 
 ---
 
-## 🎯 Current Status
+## 🎯 Project Status
+
+**Current Version**: v3.0.5  
+**Project Status**: Active Development  
+**Phase**: Phase 0 Complete, Phase 1 In Progress
+
+---
+
+## 📋 Task Management
+
+### Source of Truth: Beads Issues
+
+All active tasks, features, and improvements are tracked in the **beads project board**. This ensures:
+- ✅ Single source of truth
+- ✅ Real-time status updates
+- ✅ Proper prioritization
+- ✅ Team collaboration
+- ✅ Issue linking and tracking
+
+**To view current roadmap items**: Check the beads project board
+
+---
+
+## 🎯 Completed Milestones
 
 ### Phase 0: Foundation - ✅ **COMPLETE**
 
 **Achievements**:
 - ✅ Comprehensive documentation (15+ guides)
 - ✅ CI/CD pipeline (GitHub Actions)
-- ✅ Test infrastructure (Jest, 371 tests, 18.8% coverage)
+- ✅ Test infrastructure (Jest, 371 tests)
 - ✅ Code quality tools (ESLint, Prettier, Husky)
 - ✅ Conventional Commits with automation
 - ✅ Cross-platform support (Bash, PowerShell, Node.js, Python)
@@ -31,64 +54,32 @@ Last Updated: January 20, 2026
 - Tests: 371 passing
 - Test Suites: 10
 
-See [PHASE_0_COMPLETE.md](docs/PHASE_0_COMPLETE.md) for detailed summary.
+See [docs/PHASE_0_COMPLETE.md](docs/PHASE_0_COMPLETE.md) for detailed summary.
 
 ---
 
-## 🔮 Phase 1: Enhancement & Expansion - 🚧 **IN PROGRESS**
+## 🔮 Current Focus Areas
 
-Phase 1 items are tracked as **beads issues** for proper project management.
+All active work is tracked in beads. General focus areas include:
 
-### Completed in Phase 1
-- ✅ Integration tests for common workflows (29 tests added)
-- ✅ Mock external commands infrastructure
-- ✅ Status badges in README
-- ✅ Documentation link validation and fixes
-- ✅ Markdown file reorganization
+1. **Testing & Quality**
+   - Increasing test coverage toward 80%
+   - Property-based testing
+   - Critical path validation
 
-### In Progress
+2. **Platform Support**
+   - Python test suite and tooling
+   - Cross-platform enhancements
 
-1. **Testing Coverage** (Target: 80%)
-   - ⏳ Property-based testing for validators
-   - ⏳ Increase statement coverage from 18.8% to 80%
-   - ⏳ Branch coverage improvement
-   - ⏳ Critical path validation
-
-2. **Python Support**
-   - ⏳ Pytest configuration and test suite
-   - ⏳ Pylint for code quality
-   - ⏳ Python coverage tracking
-
-3. **CI/CD Extensions**
-   - ⏳ GitLab CI configuration
-   - ⏳ Performance benchmarking
+3. **CI/CD & Automation**
+   - Additional CI platform support
+   - Performance benchmarking
 
 4. **Developer Experience**
-   - ⏳ E2E test suite
-   - ⏳ Snapshot testing for outputs
+   - E2E testing
+   - Workflow improvements
 
-### Tracking
-
-All Phase 1 tasks are tracked in beads issues. Refer to project board for current status and priorities.
-
----
-
-## 📋 Priority Overview
-
-### 🔴 High Priority (Current Focus)
-- ⏳ Increase test coverage to 80% (critical paths)
-- ⏳ Property-based testing for validators
-- ⏳ Branch coverage improvement
-
-### 🟡 Medium Priority
-- ⏳ Python test suite (Pytest)
-- ⏳ Pylint configuration
-- ⏳ Performance benchmarks
-- ⏳ E2E test suite
-
-### 🟢 Low Priority
-- ⏳ GitLab CI configuration
-- ⏳ Snapshot testing for outputs
+**For specific tasks and status**: Check beads project board
 
 ---
 
