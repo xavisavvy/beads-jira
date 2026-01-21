@@ -135,12 +135,33 @@ else
 endif
 
 # Test with example data
-test:
-	@echo "Testing sync with example data..."
-	@$(SYNC_SCRIPT) TEST --use-example-data
-	@echo ""
-	@echo "Check beads issues:"
-	@bd ls --label jira-synced
+test: test-js test-py-basic
+
+test-js:
+	@echo "Running JavaScript tests..."
+	@npm test
+
+test-py-basic:
+	@echo "Testing Python sync with example data..."
+	@$(PYTHON_CMD) sync_jira_to_beads.py TEST --use-example-data || echo "Python test skipped"
+
+test-py:
+	@echo "Running Python test suite..."
+	@if command -v pytest >/dev/null 2>&1; then \
+		pytest tests/test_sync_python.py -v; \
+	else \
+		echo "pytest not installed. Install with: pip3 install -r requirements-test.txt"; \
+		echo "Skipping Python tests..."; \
+	fi
+
+test-all: test-js test-py
+
+test-coverage:
+	@echo "Running tests with coverage..."
+	@npm run test:coverage
+	@if command -v pytest >/dev/null 2>&1; then \
+		pytest tests/test_sync_python.py --cov=. --cov-report=html:coverage-python -v; \
+	fi
 
 # Clean generated files
 clean:

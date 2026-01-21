@@ -1,0 +1,169 @@
+╔════════════════════════════════════════════════════════════════╗
+║           🚀 JIRA-BEADS SYNC - FIRST DAY CHEAT SHEET          ║
+╚════════════════════════════════════════════════════════════════╝
+
+┌─ GETTING STARTED ─────────────────────────────────────────────┐
+│                                                                │
+│  New here? Run this first:                                    │
+│                                                                │
+│    npm run onboard                                            │
+│                                                                │
+│  ⏱  Takes ~5 minutes                                          │
+│  ✅ Checks everything you need                                │
+│  ✅ Sets up your environment                                  │
+│  ✅ Shows you what to do next                                 │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+
+┌─ MORNING ROUTINE ─────────────────────────────────────────────┐
+│                                                                │
+│  1. Pull latest code (auto-syncs Jira if hook installed):    │
+│                                                                │
+│     git pull origin main                                      │
+│                                                                │
+│  2. See what to work on:                                      │
+│                                                                │
+│     bd ready                                                  │
+│                                                                │
+│  3. Start working on highest priority:                        │
+│                                                                │
+│     npm run start -- bd-xxx                                   │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+
+┌─ COMMON COMMANDS ─────────────────────────────────────────────┐
+│                                                                │
+│  📋 View Issues                                               │
+│     bd ready              Show prioritized work               │
+│     bd show bd-xxx        See issue details                   │
+│     bd ls                 List all issues                     │
+│                                                                │
+│  🔄 Sync Jira                                                 │
+│     npm run sync          Sync all issues                     │
+│     npm run sync -- PROJ  Sync specific project               │
+│                                                                │
+│  🚀 Start Work                                                │
+│     npm run start -- bd-xxx    Creates branch, marks active   │
+│     bd start bd-xxx            Just mark as in-progress       │
+│                                                                │
+│  ✅ Finish Work                                               │
+│     npm run finish -- bd-xxx   Creates PR, marks done         │
+│     bd done bd-xxx             Just mark as done              │
+│                                                                │
+│  ➕ Create Issues                                             │
+│     bd create "title" -t bug -p 1    Create bug (high pri)   │
+│     bd create "title" -t task -p 2   Create task (med pri)   │
+│     bd create "title" -t feature -p 3 Create feature (low)   │
+│                                                                │
+│  🔗 Link Issues                                               │
+│     bd dep add bd-new bd-parent --type discovered-from        │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+
+┌─ UNDERSTANDING YOUR ISSUES ───────────────────────────────────┐
+│                                                                │
+│  Issues from Jira have these labels:                          │
+│                                                                │
+│    🏷️  jira-synced        Came from Jira                      │
+│    🏷️  PROJ-123           Jira issue key                      │
+│    🏷️  component-api      Jira component                      │
+│                                                                │
+│  Issues you create locally:                                   │
+│                                                                │
+│    🏷️  local-only         Not in Jira                         │
+│    🏷️  discovered          Found during work                  │
+│                                                                │
+│  View Jira metadata:                                          │
+│                                                                │
+│    bd show bd-xxx          Shows Jira key, status, assignee   │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+
+┌─ WORKING WITH GIT ────────────────────────────────────────────┐
+│                                                                │
+│  Include issue IDs in commits:                                │
+│                                                                │
+│    git commit -m "fix: login timeout (bd-a1b2 PROJ-123)"     │
+│                                                                │
+│  Automatic sync happens on:                                   │
+│                                                                │
+│    git pull origin main    (if git hook installed)           │
+│                                                                │
+│  Manual sync anytime:                                         │
+│                                                                │
+│    npm run sync                                               │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+
+┌─ PRIORITIES ──────────────────────────────────────────────────┐
+│                                                                │
+│  0 = Highest (Jira: Blocker/Highest)                         │
+│  1 = High    (Jira: High)                                    │
+│  2 = Medium  (Jira: Medium)                                  │
+│  3 = Low     (Jira: Low)                                     │
+│  4 = Lowest  (Jira: Lowest)                                  │
+│                                                                │
+│  bd ready shows highest priority first ⬆️                     │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+
+┌─ WORKING OFFLINE ─────────────────────────────────────────────┐
+│                                                                │
+│  ✅ Beads is local - works without network                    │
+│  ✅ All your issues are always available                      │
+│  ✅ Sync when you have network again                          │
+│                                                                │
+│  If sync fails:                                               │
+│                                                                │
+│    ❌ "MCP query failed" - Expected, work offline            │
+│    ✅ Your existing issues still work                        │
+│    ⏰ Sync on next git pull or npm run sync                  │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+
+┌─ QUICK FIXES ─────────────────────────────────────────────────┐
+│                                                                │
+│  "bd command not found"                                       │
+│    → Install beads:                                           │
+│      curl -fsSL https://raw.githubusercontent.com/           │
+│        steveyegge/beads/main/scripts/install.sh | bash       │
+│      Restart terminal                                         │
+│                                                                │
+│  "Not a beads repository"                                     │
+│    → Initialize beads:                                        │
+│      bd init                                                  │
+│                                                                │
+│  "Git hook not running"                                       │
+│    → Make executable:                                         │
+│      chmod +x .git/hooks/post-merge                          │
+│                                                                │
+│  "Sync returns 0 issues"                                      │
+│    → Check if offline or wrong project key                   │
+│      npm run sync -- YOURPROJECT                             │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+
+┌─ GET HELP ────────────────────────────────────────────────────┐
+│                                                                │
+│  📚 Documentation:                                            │
+│                                                                │
+│     docs/ONBOARDING.md         Full onboarding guide          │
+│     docs/QUICKREF.md           Command reference              │
+│     docs/DEVELOPER_WORKFLOWS.md Real-world examples           │
+│     docs/EXAMPLE_WORKFLOW.md   Step-by-step workflows         │
+│                                                                │
+│  💡 Tips:                                                     │
+│                                                                │
+│     - Run "npm run onboard" if you haven't yet               │
+│     - Use "bd ready" to see what's next                      │
+│     - Check "bd show bd-xxx" for full issue details          │
+│     - Link discovered work with "bd dep add"                 │
+│                                                                │
+│  🤝 Ask your team for help - everyone was new once!          │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+
+╔════════════════════════════════════════════════════════════════╗
+║  💡 Pro Tip: Save this file to your desktop for quick access  ║
+║      cp docs/FIRST_DAY.txt ~/Desktop/beads-quickstart.txt     ║
+╚════════════════════════════════════════════════════════════════╝

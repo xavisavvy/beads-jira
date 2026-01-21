@@ -15,10 +15,11 @@
 > 🎉 **Phase 0 Complete!** CI/CD pipeline, automated testing, and code quality tools are now live!
 >
 > 📖 **Documentation Navigation**
+> - **🆕 [docs/ONBOARDING.md](docs/ONBOARDING.md)** - New developer guide (START HERE!)
+> - **[docs/FIRST_DAY.txt](docs/FIRST_DAY.txt)** - Printable cheat sheet for your first day
 > - **[INDEX.md](INDEX.md)** - Complete documentation index (organized by category)
 > - **[docs/QUICKREF.md](docs/QUICKREF.md)** - Quick command reference
 > - **[ROADMAP.md](ROADMAP.md)** - Development roadmap (Phase 1 next!)
-> - **[docs/GETTING_STARTED.md](docs/GETTING_STARTED.md)** - First-time setup guide
 > - **README.md** - Project overview (you are here)
 
 ---
@@ -45,16 +46,31 @@ This integration allows you to:
 
 ## Quick Start
 
-### 1. Install the Integration
+### New Developer? Start Here! 🚀
 
-From your project root:
+Run the interactive onboarding wizard (takes ~5 minutes):
 
 ```bash
-# Clone or download these files to your project
-cp -r jira-beads-sync/* /path/to/your/project/
+npm run onboard
+```
 
+The wizard will:
+- ✅ Check all prerequisites (Node, Git, beads)
+- ✅ Initialize beads if needed
+- ✅ Collect your configuration (Jira project, component)
+- ✅ Install sync scripts and workflow helpers
+- ✅ Set up git hooks (optional)
+- ✅ Run a test sync with example data
+- ✅ Show you exactly what to do next
+
+**📖 See [docs/ONBOARDING.md](docs/ONBOARDING.md) for the complete first-day guide**
+
+### Manual Installation (Alternative)
+
+If you prefer manual setup:
+
+```bash
 # Run the installation script
-cd /path/to/your/project
 ./install.sh
 ```
 

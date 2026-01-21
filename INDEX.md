@@ -15,16 +15,19 @@ This project follows **Agentic AI SDLC** documentation structure for AI agent an
 
 ## 🚀 Getting Started (Start Here!)
 
-1. **[README.md](README.md)** - Main overview, setup, and features
-2. **[docs/QUICKREF.md](docs/QUICKREF.md)** - Quick command reference
-3. **[docs/GETTING_STARTED.md](docs/GETTING_STARTED.md)** - First-time setup walkthrough
-4. **[docs/QUICK_START_CARD.md](docs/QUICK_START_CARD.md)** - One-page quick start
+1. **🆕 [docs/ONBOARDING.md](docs/ONBOARDING.md)** - New developer guide (Interactive wizard!)
+2. **[docs/FIRST_DAY.txt](docs/FIRST_DAY.txt)** - Printable first-day cheat sheet
+3. **[README.md](README.md)** - Main overview, setup, and features
+4. **[docs/QUICKREF.md](docs/QUICKREF.md)** - Quick command reference
+5. **[docs/GETTING_STARTED.md](docs/GETTING_STARTED.md)** - First-time setup walkthrough
 
 ---
 
 ## 📖 Core Documentation
 
 ### User Documentation (`docs/`)
+- **🆕 [ONBOARDING.md](docs/ONBOARDING.md)** - New developer onboarding guide
+- **[FIRST_DAY.txt](docs/FIRST_DAY.txt)** - Printable first-day cheat sheet
 - **[GETTING_STARTED.md](docs/GETTING_STARTED.md)** - Installation and first steps
 - **[QUICKREF.md](docs/QUICKREF.md)** - Quick reference card
 - **[QUICK_START_CARD.md](docs/QUICK_START_CARD.md)** - One-page guide
