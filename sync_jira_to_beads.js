@@ -9,6 +9,7 @@
 const { execSync, spawn } = require('child_process'); // eslint-disable-line no-unused-vars
 const fs = require('fs'); // eslint-disable-line no-unused-vars
 const path = require('path'); // eslint-disable-line no-unused-vars
+const AtlassianMCPClient = require('./lib/mcp-client');
 
 class JiraBeadsSync {
   constructor(projectKey, options = {}) {
@@ -16,6 +17,7 @@ class JiraBeadsSync {
     this.component = options.component;
     this.mcpUrl = options.mcpUrl || 'https://mcp.atlassian.com/v1/mcp';
     this.useExampleData = options.useExampleData || false;
+    this.mcpClient = null;
   }
 
   /**
@@ -55,14 +57,47 @@ class JiraBeadsSync {
   }
 
   /**
-   * Query Jira via MCP (to be implemented with actual MCP client)
+   * Query Jira via MCP (real implementation with fallback)
    */
   async queryViaMcpClient(jql) {
-    // For prototype, return example data
-    console.log(`ℹ️  Would query MCP at: ${this.mcpUrl}`);
-    console.log(`ℹ️  With JQL query: ${jql}`);
+    try {
+      // Initialize MCP client if not already done
+      if (!this.mcpClient) {
+        this.mcpClient = new AtlassianMCPClient({
+          mcpServerUrl: this.mcpUrl
+        });
+      }
 
-    throw new Error('MCP client integration - using example data');
+      console.log(`🔗 Connecting to MCP server: ${this.mcpUrl}`);
+      await this.mcpClient.connect();
+
+      console.log(`📊 Querying Jira with JQL: ${jql}`);
+      const issues = await this.mcpClient.queryJira(jql);
+
+      await this.mcpClient.disconnect();
+
+      return issues;
+    } catch (error) {
+      // Clean up connection on error
+      if (this.mcpClient) {
+        try {
+          await this.mcpClient.disconnect();
+        } catch (e) {
+          // Ignore disconnect errors
+        }
+      }
+
+      // Provide helpful error message
+      console.error(`\n⚠️  MCP Connection Failed: ${error.message}\n`);
+      console.error('Possible solutions:');
+      console.error('1. Check your network connection');
+      console.error('2. Verify MCP server URL is correct');
+      console.error('3. Ensure you have access to the Atlassian MCP server');
+      console.error('4. Try authenticating: npx -y mcp-remote@latest ' + this.mcpUrl);
+      console.error('5. Use --use-example-data flag for offline testing\n');
+
+      throw error;
+    }
   }
 
   /**

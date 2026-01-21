@@ -15,6 +15,7 @@
     "test:benchmark": "jest tests/benchmarks --verbose",
     "test:benchmark:perf": "jest tests/benchmarks/performance.benchmark.test.js --verbose",
     "test:benchmark:startup": "jest tests/benchmarks/startup.benchmark.test.js --verbose",
+    "test:mcp": "node test-mcp-connection.js",
     "config": "node run.js config",
     "sync-pr-templates": "node scripts/sync-pr-templates.js",
     "check-pr-templates": "node scripts/sync-pr-templates.js --check",
@@ -51,6 +52,9 @@
     "prettier": "^3.8.0",
     "standard-version": "^9.5.0"
   },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.3"
+  },
   "lint-staged": {
     "*.js": [
       "eslint --fix",
@@ -62,5 +66,8 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.3"
   }
 }

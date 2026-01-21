@@ -1,25 +1,29 @@
 # Jira-Beads Sync Integration
 
 [![CI](https://github.com/xavisavvy/beads-jira/actions/workflows/ci.yml/badge.svg)](https://github.com/xavisavvy/beads-jira/actions/workflows/ci.yml)
-[![Version](https://img.shields.io/badge/version-2.0.6-blue.svg)](https://github.com/xavisavvy/beads-jira/releases)
+[![Version](https://img.shields.io/badge/version-3.3.0-blue.svg)](https://github.com/xavisavvy/beads-jira/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org)
-[![Tests](https://img.shields.io/badge/tests-301%20passing-success.svg)](https://github.com/xavisavvy/beads-jira/actions/workflows/ci.yml)
-[![Coverage](https://img.shields.io/badge/coverage-18.8%25-yellow.svg)](./coverage/lcov-report/index.html)
+[![Tests](https://img.shields.io/badge/tests-1234%20passing-success.svg)](https://github.com/xavisavvy/beads-jira/actions/workflows/ci.yml)
+[![Coverage](https://img.shields.io/badge/coverage-31.21%25-yellow.svg)](./coverage/lcov-report/index.html)
+[![MCP](https://img.shields.io/badge/MCP-integrated-brightgreen.svg)](https://modelcontextprotocol.io)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/xavisavvy/beads-jira/graphs/commit-activity)
 
 **Automatically sync Jira issues to your local [beads](https://github.com/steveyegge/beads) issue tracker via the Atlassian Rovo MCP server.**
 
-> 🎉 **Phase 0 Complete!** CI/CD pipeline, automated testing, and code quality tools are now live!
+> 🎉 **Phase 2 Complete!** Real MCP integration is now live with production-ready Jira API support!
+>
+> 🔗 **Real MCP Integration** - Query actual Jira data using the official `@modelcontextprotocol/sdk`
 >
 > 📖 **Documentation Navigation**
-> - **🆕 [docs/ONBOARDING.md](docs/ONBOARDING.md)** - New developer guide (START HERE!)
+> - **🆕 [docs/REAL_MCP_INTEGRATION.md](docs/REAL_MCP_INTEGRATION.md)** - MCP integration guide (NEW!)
+> - **[docs/ONBOARDING.md](docs/ONBOARDING.md)** - New developer guide (START HERE!)
 > - **[docs/FIRST_DAY.txt](docs/FIRST_DAY.txt)** - Printable cheat sheet for your first day
 > - **[INDEX.md](INDEX.md)** - Complete documentation index (organized by category)
 > - **[docs/QUICKREF.md](docs/QUICKREF.md)** - Quick command reference
-> - **[ROADMAP.md](ROADMAP.md)** - Development roadmap (Phase 1 next!)
+> - **[ROADMAP.md](ROADMAP.md)** - Development roadmap (Phase 2 complete!)
 > - **README.md** - Project overview (you are here)
 
 ---
@@ -27,22 +31,35 @@
 ## Overview
 
 This integration allows you to:
-- ✅ Query Jira issues filtered by project and component
+- ✅ Query **real Jira data** via Atlassian Rovo MCP server (v3.3.0+)
 - ✅ Sync issues to your local beads database
 - ✅ Automatically trigger syncs on `git pull` via git hooks
 - ✅ Work offline with full Jira issue context
 - ✅ Enable AI agents to access Jira issues locally
 - ✅ Track discovered work alongside planned Jira issues
+- ✅ Test MCP connectivity with `npm run test:mcp`
+
+### What's New in v3.3.0
+
+🔗 **Real MCP Integration**:
+- Official `@modelcontextprotocol/sdk` integration
+- Production-ready Jira API queries
+- Graceful fallback to example data
+- Connection testing utility
+- Comprehensive documentation
+
+See [docs/REAL_MCP_INTEGRATION.md](docs/REAL_MCP_INTEGRATION.md) for details.
 
 ## Prerequisites
 
 | Requirement | Version | Installation |
 |-------------|---------|--------------|
+| **Node.js** | 18.0+ | [nodejs.org](https://nodejs.org) |
 | **Python** | 3.7+ | Usually pre-installed on macOS/Linux |
 | **Beads** | Latest | `curl -fsSL https://raw.githubusercontent.com/steveyegge/beads/main/scripts/install.sh \| bash` |
 | **Git** | Any | Usually pre-installed |
 | **Jira Cloud Access** | - | Access to your organization's Jira |
-| **Atlassian Rovo MCP** | - | Optional for real data (see Setup) |
+| **Atlassian Rovo MCP** | - | For real data (see Setup) |
 
 ## Quick Start
 
@@ -81,18 +98,29 @@ The installer will:
 - Optionally install a git post-merge hook
 - Create a config file at `.jira-beads-config`
 
-### 2. Configure Atlassian MCP
+### 2. Test MCP Connection
 
-If you haven't already set up the Atlassian Rovo MCP server:
+Before syncing, test that your MCP connection is working:
+
+```bash
+# Test MCP connectivity and list available tools
+npm run test:mcp
+```
+
+This will connect to the Atlassian MCP server and verify authentication.
+
+### 3. Configure Atlassian MCP (if needed)
+
+If the connection test fails, authenticate with the MCP server:
 
 ```bash
 # This will open a browser for OAuth authentication
-npx -y mcp-remote@0.1.13 https://mcp.atlassian.com/v1/mcp
+npx -y mcp-remote@latest https://mcp.atlassian.com/v1/mcp
 ```
 
 Keep this terminal session running, or configure it in your IDE/client.
 
-### 3. Test Manual Sync
+### 4. Sync Jira Issues
 
 ```bash
 # Using npm (recommended)
