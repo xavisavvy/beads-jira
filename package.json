@@ -32,12 +32,16 @@
     "release:patch": "standard-version --release-as patch",
     "release:dry": "standard-version --dry-run"
   },
+  "bin": {
+    "beads-sync": "./bin/beads-sync.js"
+  },
   "keywords": [
     "jira",
     "beads",
     "workflow",
     "automation",
-    "mcp"
+    "mcp",
+    "cli"
   ],
   "author": "Your Organization",
   "license": "MIT",

@@ -4,6 +4,9 @@
 
 ### ✨ Features
 
+* **ci/cd:** add GitHub Actions automated sync workflow
+* **cli:** add npx support for easy sync execution
+* **automation:** comprehensive CI/CD integration guide
 * **mcp:** implement real Atlassian MCP integration with official SDK
 * **testing:** add comprehensive edge case and error handling tests
 * **performance:** add performance benchmarking suite
@@ -48,6 +51,35 @@ sync_jira_to_beads.js
 * `npm run test:benchmark` - Run all performance benchmarks
 * `npm run test:benchmark:perf` - Run performance benchmarks only
 * `npm run test:benchmark:startup` - Run startup benchmarks only
+
+### 🤖 CI/CD & Automation
+
+#### GitHub Actions Workflow
+* Add `.github/workflows/sync-jira.yml` - Automated sync workflow
+  - Runs every 6 hours or on-demand
+  - Creates PRs automatically with synced issues
+  - Manual trigger with sync mode options (auto/manual/dry-run)
+  - Requires GitHub secrets: JIRA_HOST, JIRA_EMAIL, JIRA_API_TOKEN, JIRA_PROJECT_KEY
+
+#### npx CLI Support
+* Add `bin/beads-sync.js` - Executable CLI for end users
+* Enable `npx jira-beads-sync-helpers sync` usage
+* Environment validation and helpful error messages
+* No installation required for quick syncs
+
+#### Documentation
+* Create `docs/CI_CD_AUTOMATION.md` - Comprehensive automation guide
+  - Quick start for npx users
+  - GitHub Actions setup instructions
+  - Integration examples (GitLab CI, Bitbucket, Jenkins)
+  - Security best practices
+  - Troubleshooting guide
+  - Multi-project sync patterns
+  - Monitoring and debugging tips
+
+#### Package Updates
+* Add `bin` field to package.json for CLI installation
+* Add `cli` keyword for npm discoverability
 
 ### 📁 Files Added
 * `lib/mcp-client.js` - Real MCP client implementation
