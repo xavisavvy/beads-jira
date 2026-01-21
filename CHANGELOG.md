@@ -1,4 +1,11 @@
 Changelog
+### [3.0.11](https://github.com/xavisavvy/beads-jira/compare/v3.0.10...v3.0.11) (2026-01-21)
+
+
+### 👷 CI/CD
+
+* fix QUICKREF.md path in documentation check ([fe7f57a](https://github.com/xavisavvy/beads-jira/commit/fe7f57a5c85485d1b0f6de7b89ee5abe3a0a6f60))
+
 ### [3.0.10](https://github.com/xavisavvy/beads-jira/compare/v3.0.9...v3.0.10) (2026-01-21)
 
 
