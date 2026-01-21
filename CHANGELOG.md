@@ -1,4 +1,11 @@
 Changelog
+### [3.0.10](https://github.com/xavisavvy/beads-jira/compare/v3.0.9...v3.0.10) (2026-01-21)
+
+
+### ✅ Tests
+
+* add QUICKREF.md to document validator ([d5e89fe](https://github.com/xavisavvy/beads-jira/commit/d5e89fe8fcb94390d64f57fb8d41ab2e74931259))
+
 ### [3.0.9](https://github.com/xavisavvy/beads-jira/compare/v3.0.8...v3.0.9) (2026-01-20)
 
 
