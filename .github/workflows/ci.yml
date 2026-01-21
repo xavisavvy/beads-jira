@@ -99,7 +99,7 @@ jobs:
           test -f README.md || (echo "ERROR: README.md missing" && exit 1)
           test -f INDEX.md || (echo "ERROR: INDEX.md missing" && exit 1)
           test -f ROADMAP.md || (echo "ERROR: ROADMAP.md missing" && exit 1)
-          test -f QUICKREF.md || (echo "ERROR: QUICKREF.md missing" && exit 1)
+          test -f docs/QUICKREF.md || (echo "ERROR: docs/QUICKREF.md missing" && exit 1)
           echo "✓ All required documentation files present"
   
   validate-scripts:
