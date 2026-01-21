@@ -270,6 +270,16 @@ describe('Integration Tests', () => {
       docSubdirs.forEach(dir => {
         expect(fs.existsSync(path.join(docsDir, dir))).toBe(true);
       });
+
+      const requiredDocs = [
+        'QUICKREF.md',
+        'README.md',
+        'DOCUMENTATION.md',
+        'GETTING_STARTED.md'
+      ];
+      requiredDocs.forEach(file => {
+        expect(fs.existsSync(path.join(docsDir, file))).toBe(true);
+      });
     });
 
     test('should verify test directory structure', () => {
