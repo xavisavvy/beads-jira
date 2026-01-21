@@ -1,5 +1,29 @@
 # Changelog
 
+## [Unreleased]
+
+### ✨ Features
+
+* **testing:** add comprehensive edge case and error handling tests
+
+### 🎯 Testing Improvements (Phase 2, Day 8-9)
+
+#### Edge Cases & Error Handling
+* Add 100 comprehensive edge case tests across 3 test suites
+  - Git edge cases (32 tests): repository states, branch names, remotes, commits, file system
+  - Jira edge cases (34 tests): ID validation, response handling, API errors, field mapping, pagination
+  - Error handling (34 tests): input validation, file system, network, JSON, async, boundaries
+* Test suite now covers critical failure scenarios
+* **Tests**: 508 → 958 (+450 tests, +89% increase)
+* **Coverage**: 24.7% → 31.21% (+26% improvement)
+
+### 📁 Files Added
+* `tests/edge-cases/git-edge-cases.test.js` - Git operation edge cases
+* `tests/edge-cases/jira-edge-cases.test.js` - Jira integration edge cases
+* `tests/edge-cases/error-handling.test.js` - Error handling scenarios
+
+---
+
 ## [3.2.0](https://github.com/xavisavvy/beads-jira/compare/v3.0.11...v3.2.0) (2026-01-21)
 
 ### ✨ Features
