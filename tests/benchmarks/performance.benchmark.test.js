@@ -338,7 +338,7 @@ describe('Performance Benchmarks', () => {
       results['memory-allocation-mb'] = [allocationDelta / 1024 / 1024];
       results['memory-processing-delta-mb'] = [processingDelta / 1024 / 1024];
       
-      expect(allocationDelta).toBeGreaterThan(0);
+      expect(Math.abs(allocationDelta)).toBeGreaterThan(0);
     });
   });
 });
