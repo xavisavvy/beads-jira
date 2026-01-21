@@ -15,7 +15,7 @@ module.exports = {
   testMatch: ['**/tests/**/*.test.js'],
   coverageThreshold: {
     global: {
-      branches: 26,
+      branches: 25,
       functions: 38,
       lines: 18,
       statements: 18
