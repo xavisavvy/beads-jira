@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(grep:*)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.npmjs.com)",
+      "Bash(npm view:*)",
+      "Bash(for pkg in forgehub forgedev projforge codeforge smithy smithycli dev-forge repo-forge gitforge)",
+      "Bash(do echo -n \"$pkg: \")",
+      "Bash(done)",
+      "Bash(for pkg in rig rigcli devrig harness harnessed crew crewcli mesh meshcli)",
+      "Bash(for pkg in hiveforge forgehive hivecraft hivesmith hivebuild swarmforge colonyforge apiaryforge combforge)",
+      "Bash(for pkg in hivecli hivekit hiveinit beforge beeforge honeycomb apiary colony nectar pollinate)",
+      "Bash(for pkg in hexforge cellforge combcli keeper beekeeper hivemind buzzcli stingcli workerbee)",
+      "WebFetch(domain:hiveforge.dev)",
+      "Bash(curl:*)",
+      "Bash(for domain in hiveforge.io gethiveforge.com gethiveforge.dev usehiveforge.com hiveforge.tools hiveforge.sh hiveforge.app)",
+      "Bash(do echo -n \"$domain: \")",
+      "Bash(nslookup $domain)",
+      "Bash(node --check:*)",
+      "Bash(node bin/hiveforge.js:*)"
+    ]
+  }
+}
